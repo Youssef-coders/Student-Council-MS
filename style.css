@@ -1127,30 +1127,33 @@ html[data-theme="dark"] .manarat-voice-img {
   
   .links {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.3rem;
+    width: 100%;
   }
   
   .btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.85rem;
-    margin: 0.25rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.75rem;
+    margin: 0;
+    white-space: nowrap;
   }
   
   /* Hero Section */
   .hero {
-    padding: 5rem 1.5rem 4rem 1.5rem;
+    padding: 3rem 1rem 2.5rem 1rem;
   }
   
   .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
   }
   
   .hero p {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
   }
   
   /* Sections */
@@ -1316,12 +1319,25 @@ html[data-theme="dark"] .manarat-voice-img {
 
 /* Extra small devices */
 @media (max-width: 480px) {
+  .hero {
+    padding: 2rem 0.8rem 2rem 0.8rem;
+  }
+  
   .hero h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  
+  .hero p {
+    font-size: 0.85rem;
+  }
+  
+  section {
+    padding: 2rem 1rem;
   }
   
   section h2 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
   
   .member-number {
@@ -1329,20 +1345,39 @@ html[data-theme="dark"] .manarat-voice-img {
   }
   
   .carousel-content {
-    padding: 1.5rem;
+    padding: 1.2rem;
   }
   
   .carousel-content h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   
   .carousel-content p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
   
   .btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+  }
+  
+  .links .btn {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.65rem;
+  }
+  
+  .nav-logo {
+    font-size: 1rem;
+  }
+  
+  .card,
+  .club-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .card h3,
+  .club-card h3 {
+    font-size: 1.2rem;
   }
 }
 
@@ -1520,8 +1555,6 @@ html[data-theme="dark"] .carousel-content p {
   position: relative;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-color);
-  cursor: pointer;
-  text-decoration: none;
   display: block;
   backdrop-filter: blur(10px);
 }
