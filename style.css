@@ -1208,15 +1208,25 @@ html[data-theme="dark"] .manarat-voice-img {
   
   /* News Carousel */
   .news-carousel-section {
-    padding: 2rem 1rem;
+    padding: 2rem 0.5rem;
+  }
+  
+  .news-carousel {
+    margin: 0;
   }
   
   .carousel-content h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    padding: 0 0.5rem;
   }
   
   .carousel-content p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+  }
+  
+  .carousel-dots {
+    padding: 1rem 0;
   }
   
   /* Events */
@@ -1345,15 +1355,27 @@ html[data-theme="dark"] .manarat-voice-img {
   }
   
   .carousel-content {
-    padding: 1.2rem;
+    padding: 1rem;
+    text-align: center;
   }
   
   .carousel-content h3 {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
   }
   
   .carousel-content p {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  
+  .carousel-date {
+    font-size: 0.7rem;
+  }
+  
+  .carousel-image {
+    height: 200px;
   }
   
   .btn {
@@ -1527,6 +1549,7 @@ html[data-theme="dark"] .carousel-content p {
 @media (max-width: 768px) {
   .carousel-slide.active {
     flex-direction: column;
+    align-items: center;
   }
   
   .carousel-image {
@@ -1536,11 +1559,24 @@ html[data-theme="dark"] .carousel-content p {
   
   .carousel-content {
     width: 100%;
-    padding: 2rem;
+    padding: 1.5rem;
+    text-align: center;
+    align-items: center;
   }
   
   .carousel-content h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    line-height: 1.3;
+    word-wrap: break-word;
+  }
+  
+  .carousel-content p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .carousel-date {
+    font-size: 0.75rem;
   }
 }
 
