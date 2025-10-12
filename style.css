@@ -1055,6 +1055,96 @@ html[data-theme="dark"] .member-number {
 
 .back-button-container { margin-top:3rem; animation: fadeInUp 1.6s ease-out; }
 
+/* Team Page Styles */
+.team-section {
+  margin-bottom: 4rem;
+}
+
+.team-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+  position: relative;
+  font-size: 2.5rem;
+}
+
+.team-category-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-member {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  border: 2px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+
+.member-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.team-member:hover .member-name {
+  color: #1e40af;
+}
+
+.member-role {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(30, 64, 175, 0.1);
+  border-radius: 8px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.member-grade {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+/* Dark mode team styles */
+html[data-theme="dark"] .member-name {
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] .team-member:hover .member-name {
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] .member-role {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme="dark"] .member-grade {
+  color: #e2e8f0 !important;
+}
+
 /* Hero Content Container with Image */
 .hero-content-container {
   display: flex;
@@ -1411,6 +1501,33 @@ html[data-theme="dark"] .manarat-voice-img {
   .card h3,
   .club-card h3 {
     font-size: 1.2rem;
+  }
+  
+  /* Team page mobile */
+  .team-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .team-category-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .team-member {
+    padding: 1.5rem;
+  }
+  
+  .member-name {
+    font-size: 1.3rem;
+  }
+  
+  .member-role {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .member-grade {
+    font-size: 0.9rem;
   }
 }
 
