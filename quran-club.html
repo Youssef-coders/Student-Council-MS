@@ -10,6 +10,18 @@
 </head>
 <body>
 
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader-container">
+      <div class="loader-logo">
+        <img src="manarat.jpeg" alt="Loading" class="loader-img">
+      </div>
+      <div class="loader-spinner"></div>
+      <div class="loader-text">MRIS Council</div>
+      <div class="loader-subtext">Loading...</div>
+    </div>
+  </div>
+
   <!-- Navbar -->
   <nav>
     <div class="container">
@@ -103,6 +115,19 @@
   </button>
 
   <script src="countdown.js"></script>
+
+  <script>
+    // Loading Screen
+    window.addEventListener('load', () => {
+      const loadingScreen = document.getElementById('loading-screen');
+      setTimeout(() => {
+        loadingScreen.style.opacity = '0';
+        setTimeout(() => {
+          loadingScreen.style.display = 'none';
+        }, 500);
+      }, 1500);
+    });
+  </script>
 
   <script>
     // Dark Mode Toggle
