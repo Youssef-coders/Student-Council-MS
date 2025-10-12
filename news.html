@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News - MRIS Council</title>
+  <meta name="description" content="Stay updated with the latest news, announcements, and events from MRIS Council.">
+  <link rel="icon" href="mris-sc-logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container">
+      <a href="mrismswebsite.html" class="nav-logo">
+        <img src="manarat.jpeg" alt="MRIS Logo">
+        MRIS Council
+        <!-- <div class="countdown-pill" id="header-countdown" style="display: none;">
+          <span class="pill-icon">⏰</span>
+          <span class="pill-text" id="pill-text">Next Event</span>
+        </div> -->
+      </a>
+      <div class="links">
+        <a href="clubs.html" class="btn btn-dark">Clubs</a>
+        <a href="news.html" class="btn btn-dark active">News</a>
+        <a href="events.html" class="btn btn-dark">Events</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-content-container">
+      <div class="hero-text">
+        <h1>Latest News & Updates</h1>
+        <p>Stay informed about what's happening in our school community.</p>
+      </div>
+      <div class="hero-image">
+        <img src="manarat_voice.jpg" alt="Manarat Voice" class="manarat-voice-img">
+      </div>
+    </div>
+  </header>
+
+  <!-- News Content -->
+  <section>
+    <h2>Recent News</h2>
+    
+    <div class="cards">
+      <!-- News Preview 1 -->
+      <div class="news-preview" onclick="openArticle('article1')">
+        <img src="ball.jpg" alt="Football Match" class="news-preview-image">
+        <div class="news-preview-content">
+          <div class="news-date">October 7, 2025</div>
+          <h3>Recent Football Action</h3>
+          <p class="news-preview-excerpt">
+            A crazy game happened as teachers and students embark on a tradition of a football match. Read about the epic showdown!
+          </p>
+        </div>
+      </div>
+
+      <!-- News Preview 2 -->
+      <div class="news-preview" onclick="openArticle('article2')">
+        <img src="clubs.jpg" alt="New Clubs" class="news-preview-image">
+        <div class="news-preview-content">
+          <div class="news-date">October 7, 2025</div>
+          <h3>Something for Everyone: New Clubs Ahead!</h3>
+          <p class="news-preview-excerpt">
+            The Student Council announces three new upcoming clubs for middle school: Chess, Programming, and Cubing!
+          </p>
+        </div>
+      </div>
+
+      <!-- News Preview 3 -->
+      <div class="news-preview" onclick="openArticle('article3')">
+        <img src="chess.jpg" alt="Chess Club Launch" class="news-preview-image">
+        <div class="news-preview-content">
+          <div class="news-date">October 7, 2025</div>
+          <h3>THE FIRST CLUB!!</h3>
+          <p class="news-preview-excerpt">
+            Sharpen your mind and challenge your strategy with the Chess Club. Join us each week!
+          </p>
+        </div>
+      </div>
+
+      <!-- News Preview 4 -->
+      <div class="news-preview" onclick="openArticle('article4')">
+        <img src="comp.jpg" alt="Competitions" class="news-preview-image">
+        <div class="news-preview-content">
+          <div class="news-date">October 7, 2025</div>
+          <h3>Competitions</h3>
+          <p class="news-preview-excerpt">
+            The first round of Math Bee, Spelling Bee, and Science Trivia have ended. Finals coming up!
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Modal Popup -->
+  <div id="articleModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeArticle()">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Hidden Full Articles -->
+  <div id="article1" class="hidden-article">
+    <div class="news-article-full">
+      <div class="news-date">October 7, 2025</div>
+      <h3>Recent Football Action</h3>
+      <img src="ball.jpg" alt="Football Match" class="news-image">
+      
+      <h4>TEACHER VS STUDENT MATCH EMBARRASSMENT</h4>
+      <p>
+        A crazy game happened Sunday 5th of October as teachers and students 
+        embark on a tradition of a football match. It was an AMAZING game where
+         the teachers DESTROYED the students. The game ended on 8/1 for the teachers with the MVP's
+          being Mr. Abdulrahman and Mr. Rayan. The teachers defenders were too good for the students,
+           although the students did have some good players like Abdulhadi the defender.
+      </p>
+      
+      <h4>9AM2 WORST PERFORMING TEAM IN THE LEAGUE</h4>
+      <p>
+        The match was CATASTROPHIC FOR 9am2. As in the 47th minute, Saif scored the 2 goals for 9am1, 
+        followed by another 2 by Ziad and Fahad. In the 60th and 63rd minute both Fahad and Said scored, 
+        followed by Waleed scoring 2, in the 78th minute and Saif scoring in the 95th minute. The Man of 
+        the match award goes to Saif Alden for scoring 4 goals and 2 assists. 9am1 won with a score of 9/0.
+      </p>
+      <p>Special Congratulations to Saif AL-DIEN AND Abdulhadi for their amazing performances</p>
+    </div>
+  </div>
+
+  <div id="article2" class="hidden-article">
+    <div class="news-article-full">
+      <div class="news-date">October 7, 2025</div>
+      <h3>Something for Everyone: New Clubs Ahead!</h3>
+      <img src="clubs.jpg" alt="New Clubs" class="news-image">
+      
+      <p>
+        The Student Council would like to announce three new upcoming clubs for middle school: A chess club, 
+        a programming club, and a cubing club. These clubs will allow students to unleash their inner talents 
+        and find friends who share the same interests as them. This is a great opportunity for those who want 
+        to learn new skills. Whether you want to learn strategy, build cool apps, or solve Rubik's cubes, 
+        there is always something for you. Keep your eyes peeled, they will be here very soon!
+      </p>
+    </div>
+  </div>
+
+  <div id="article3" class="hidden-article">
+    <div class="news-article-full">
+      <div class="news-date">October 7, 2025</div>
+      <h3>THE FIRST CLUB!!</h3>
+      <img src="chess.jpg" alt="Chess Club Launch" class="news-image">
+      
+      <p>
+        Sharpen your mind and challenge your strategy with the Chess Club.
+      </p>
+      <p>
+        Join us each week as we explore the art, logic, and mastery behind every move.
+      </p>
+    </div>
+  </div>
+
+  <div id="article4" class="hidden-article">
+    <div class="news-article-full">
+      <div class="news-date">October 7, 2025</div>
+      <h3>Competitions</h3>
+      <img src="comp.jpg" alt="Competitions" class="news-image">
+      
+      <p>
+        The first round of the Math Bee, Spelling Bee, and the Science Trivia have officially come to an end. 
+        A lot of tough competition and upsets were seen, but despite that, some have managed to qualify.
+        In the upcoming weeks, we will experience the intense finals of these competitions where top three will be awarded.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function openArticle(articleId) {
+      const modal = document.getElementById('articleModal');
+      const modalBody = document.getElementById('modalBody');
+      const article = document.getElementById(articleId);
+      
+      modalBody.innerHTML = article.innerHTML;
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeArticle() {
+      const modal = document.getElementById('articleModal');
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('articleModal');
+      if (event.target == modal) {
+        closeArticle();
+      }
+    }
+
+    // Close modal with ESC key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeArticle();
+      }
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 MRIS Council. Student-powered, always.
+  </footer>
+
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle" class="btn-icon" aria-label="Toggle dark mode">
+    <span class="icon-sun">☀️</span>
+    <span class="icon-moon">🌙</span>
+  </button>
+
+  <script src="countdown.js"></script>
+
+  <script>
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', currentTheme);
+    
+    darkModeToggle.addEventListener('click', () => {
+      const theme = html.getAttribute('data-theme');
+      const newTheme = theme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
+</body>
+</html>
+

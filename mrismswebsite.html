@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MRIS Council - Powered by Students</title>
+  <meta name="description" content="MRIS Council: student-led, student-powered. Explore our projects, activities, and community shaping the future of our school.">
+  <link rel="icon" href="mris-sc-logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container">
+      <a href="mrismswebsite.html" class="nav-logo">
+        <img src="manarat.jpeg" alt="MRIS Logo">
+        MRIS Council
+        <div class="countdown-pill" id="header-countdown" style="display: none;">
+          <span class="pill-icon">⏰</span>
+          <span class="pill-text" id="pill-text">Next Event</span>
+        </div>
+      </a>
+      <div class="links">
+        <a href="clubs.html" class="btn btn-dark">Clubs</a>
+        <a href="news.html" class="btn btn-dark">News</a>
+        <a href="events.html" class="btn btn-dark">Events</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <h1>Student Power. Real Impact.</h1>
+    <p>MRIS Council isn't just a council. We're a movement of students shaping the culture of our school.</p>
+    
+    <!-- Next Event Countdown -->
+    <div class="next-event-section" id="next-event-section" style="display: none;">
+      <div class="next-event-card">
+        <h3>🎉 Next Event</h3>
+        <div class="next-event-info">
+          <h4 id="next-event-title">Event Title</h4>
+          <p id="next-event-date">Event Date</p>
+        </div>
+        <div class="homepage-countdown" id="homepage-countdown">
+          <div class="countdown-item">
+            <span class="countdown-number" id="home-days">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="home-hours">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="home-minutes">00</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+        </div>
+        <a href="events.html" class="btn btn-primary">View All Events</a>
+      </div>
+    </div>
+    
+    <a href="news.html" class="btn btn-primary">Catch up with News</a>
+    <a href="clubs.html" class="btn btn-dark ml-1">View Clubs</a>
+  </header>
+
+  <!-- Latest News Carousel -->
+  <section class="news-carousel-section">
+    <h2>Latest News</h2>
+    <div class="news-carousel">
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <!-- News Slide 1 -->
+          <div class="carousel-slide active">
+            <img src="ball.jpg" alt="Football Match" class="carousel-image">
+            <div class="carousel-content">
+              <div class="carousel-date">October 7, 2025</div>
+              <h3>Recent Football Action</h3>
+              <p>A crazy game happened as teachers and students embark on a tradition of a football match.</p>
+              <a href="news.html" class="btn btn-primary mt-1">Read More</a>
+            </div>
+          </div>
+          
+          <!-- News Slide 2 -->
+          <div class="carousel-slide">
+            <img src="clubs.jpg" alt="New Clubs" class="carousel-image">
+            <div class="carousel-content">
+              <div class="carousel-date">October 7, 2025</div>
+              <h3>Something for Everyone: New Clubs Ahead!</h3>
+              <p>The Student Council announces three new upcoming clubs for middle school: Chess, Programming, and Cubing!</p>
+              <a href="news.html" class="btn btn-primary mt-1">Read More</a>
+            </div>
+          </div>
+          
+          <!-- News Slide 3 -->
+          <div class="carousel-slide">
+            <img src="chess.jpg" alt="Chess Club Launch" class="carousel-image">
+            <div class="carousel-content">
+              <div class="carousel-date">October 7, 2025</div>
+              <h3>THE FIRST CLUB!!</h3>
+              <p>Sharpen your mind and challenge your strategy with the Chess Club. Join us each week!</p>
+              <a href="news.html" class="btn btn-primary mt-1">Read More</a>
+            </div>
+          </div>
+          
+          <!-- News Slide 4 -->
+          <div class="carousel-slide">
+            <img src="comp.jpg" alt="Competitions" class="carousel-image">
+            <div class="carousel-content">
+              <div class="carousel-date">October 7, 2025</div>
+              <h3>Competitions</h3>
+              <p>The first round of Math Bee, Spelling Bee, and Science Trivia have ended. Finals coming up!</p>
+              <a href="news.html" class="btn btn-primary mt-1">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Navigation Dots -->
+      <div class="carousel-dots">
+        <span class="dot active" onclick="goToSlide(0)"></span>
+        <span class="dot" onclick="goToSlide(1)"></span>
+        <span class="dot" onclick="goToSlide(2)"></span>
+        <span class="dot" onclick="goToSlide(3)"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Welcome Section -->
+  <section>
+    <h2>Welcome to MRIS Council</h2>
+    <p>We're building a student-led movement that shapes the culture of our school. Explore our community, join exciting clubs, and stay updated with the latest news.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Clubs</h3>
+        <p>From sports to Qur'an club, find activities that match your passions.</p>
+        <a href="clubs.html" class="btn btn-primary mt-1">Explore Clubs</a>
+      </div>
+      <div class="card">
+        <h3>News</h3>
+        <p>Stay informed about events, announcements, and what's happening at school.</p>
+        <a href="news.html" class="btn btn-primary mt-1">Read News</a>
+      </div>
+      <div class="card">
+        <h3>Events</h3>
+        <p>Stay updated with upcoming school events, competitions, and activities.</p>
+        <a href="events.html" class="btn btn-primary mt-1">View Events</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 MRIS Council. Student-powered, always.
+  </footer>
+
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle" class="btn-icon" aria-label="Toggle dark mode">
+    <span class="icon-sun">☀️</span>
+    <span class="icon-moon">🌙</span>
+  </button>
+
+  <script>
+    // Sample events data - should match the events.html data
+    const events = [
+      // No events currently - uncomment and modify these sample events when needed
+      
+      // {
+      //   id: 1,
+      //   title: "🏆 Annual Sports Day",
+      //   description: "Join us for our biggest sports event of the year with competitions, games, and prizes!",
+      //   date: "2025-10-15T09:00:00",
+      //   location: "School Grounds"
+      // },
+      // {
+      //   id: 2,
+      //   title: "🎨 Art Exhibition",
+      //   description: "Showcase your creative talents in our annual student art exhibition.",
+      //   date: "2025-10-20T14:00:00",
+      //   location: "Main Hall"
+      // }
+    ];
+
+    function updateHomepageCountdown() {
+      if (events.length === 0) {
+        document.getElementById('next-event-section').style.display = 'none';
+        document.getElementById('header-countdown').style.display = 'none';
+        return;
+      }
+
+      // Find the next upcoming event
+      const now = new Date().getTime();
+      const upcomingEvents = events.filter(event => new Date(event.date).getTime() > now);
+      
+      if (upcomingEvents.length === 0) {
+        document.getElementById('next-event-section').style.display = 'none';
+        document.getElementById('header-countdown').style.display = 'none';
+        return;
+      }
+
+      // Sort by date and get the next event
+      upcomingEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
+      const nextEvent = upcomingEvents[0];
+      const eventDate = new Date(nextEvent.date);
+
+      // Show the sections
+      document.getElementById('next-event-section').style.display = 'block';
+      document.getElementById('header-countdown').style.display = 'flex';
+
+      // Update event info
+      document.getElementById('next-event-title').textContent = nextEvent.title;
+      document.getElementById('next-event-date').textContent = eventDate.toLocaleDateString('en-US', { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric'
+      });
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = eventDate - now;
+
+        if (distance < 0) {
+          document.getElementById('next-event-section').style.display = 'none';
+          document.getElementById('header-countdown').style.display = 'none';
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+        // Update homepage countdown
+        document.getElementById('home-days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('home-hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('home-minutes').textContent = minutes.toString().padStart(2, '0');
+
+        // Update header pill text with event name and time
+        let timeText = '';
+        if (days > 0) {
+          timeText = `${days} days`;
+        } else if (hours > 0) {
+          timeText = `${hours} hours`;
+        } else {
+          timeText = `${minutes} minutes`;
+        }
+        document.getElementById('pill-text').textContent = `${nextEvent.title} - ${timeText}`;
+      }
+
+      // Initial update and then every minute
+      updateCountdown();
+      setInterval(updateCountdown, 60000); // Update every minute
+    }
+
+    // Initialize countdown when page loads
+    document.addEventListener('DOMContentLoaded', updateHomepageCountdown);
+  </script>
+
+  <script>
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', currentTheme);
+    
+    darkModeToggle.addEventListener('click', () => {
+      const theme = html.getAttribute('data-theme');
+      const newTheme = theme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
+
+  <script>
+    // News Carousel
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+    let autoSlideInterval;
+
+    function showSlide(n) {
+      // Remove active class from all slides and dots
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+      
+      // Wrap around if necessary
+      if (n >= slides.length) {
+        currentSlide = 0;
+      } else if (n < 0) {
+        currentSlide = slides.length - 1;
+      } else {
+        currentSlide = n;
+      }
+      
+      // Add active class to current slide and dot
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+
+    function goToSlide(n) {
+      showSlide(n);
+      resetAutoSlide();
+    }
+
+    function autoSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function resetAutoSlide() {
+      clearInterval(autoSlideInterval);
+      autoSlideInterval = setInterval(autoSlide, 5000); // Change slide every 5 seconds
+    }
+
+    // Start auto-sliding when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      autoSlideInterval = setInterval(autoSlide, 5000);
+    });
+  </script>
+
+</body>
+</html>

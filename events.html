@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events - MRIS Council</title>
+  <meta name="description" content="Upcoming events and activities at MRIS - stay updated with school events and announcements.">
+  <link rel="icon" href="mris-sc-logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container">
+      <a href="mrismswebsite.html" class="nav-logo">
+        <img src="manarat.jpeg" alt="MRIS Logo">
+        MRIS Council
+        <!-- <div class="countdown-pill" id="header-countdown" style="display: none;">
+          <span class="pill-icon">⏰</span>
+          <span class="pill-text" id="pill-text">Next Event</span>
+        </div> -->
+      </a>
+      <div class="links">
+        <a href="clubs.html" class="btn btn-dark">Clubs</a>
+        <a href="news.html" class="btn btn-dark">News</a>
+        <a href="events.html" class="btn btn-dark active">Events</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <h1>📅 Upcoming Events</h1>
+    <p>Stay updated with all the exciting events and activities happening at MRIS!</p>
+  </header>
+
+  <!-- Events Section -->
+  <section>
+    <div class="events-main-container">
+      <div class="events-header">
+        <h2>What's Coming Up</h2>
+        <div class="no-events-message" id="no-events" style="display: none;">
+          <div class="no-events-card">
+            <h3>😔 Sorry, no events are coming up ):</h3>
+            <p>Check back later for exciting new events and activities!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="events-list" id="events-list">
+        <!-- Events will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 MRIS Council. Student-powered, always.
+  </footer>
+
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle" class="btn-icon" aria-label="Toggle dark mode">
+    <span class="icon-sun">☀️</span>
+    <span class="icon-moon">🌙</span>
+  </button>
+
+  <script>
+    // Sample events data - you can modify this
+    const events = [
+      // No events currently - uncomment and modify these sample events when needed
+      
+      // {
+      //   id: 1,
+      //   title: "🏆 Annual Sports Day",
+      //   description: "Join us for our biggest sports event of the year with competitions, games, and prizes!",
+      //   date: "2025-10-15T09:00:00",
+      //   location: "School Grounds"
+      // },
+      // {
+      //   id: 2,
+      //   title: "🎨 Art Exhibition",
+      //   description: "Showcase your creative talents in our annual student art exhibition.",
+      //   date: "2025-10-20T14:00:00",
+      //   location: "Main Hall"
+      // }
+    ];
+
+    function updateCountdown(targetDate, countdownElement) {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        countdownElement.innerHTML = '<div class="countdown-expired">Event Started!</div>';
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `
+        <div class="countdown-item">
+          <span class="countdown-number">${days.toString().padStart(2, '0')}</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number">${hours.toString().padStart(2, '0')}</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number">${minutes.toString().padStart(2, '0')}</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number">${seconds.toString().padStart(2, '0')}</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      `;
+    }
+
+    function displayEvents() {
+      const eventsList = document.getElementById('events-list');
+      const noEventsMessage = document.getElementById('no-events');
+
+      if (events.length === 0) {
+        eventsList.style.display = 'none';
+        noEventsMessage.style.display = 'block';
+        return;
+      }
+
+      noEventsMessage.style.display = 'none';
+      eventsList.innerHTML = '';
+
+      events.forEach(event => {
+        const eventDate = new Date(event.date);
+        const eventCard = document.createElement('div');
+        eventCard.className = 'event-card';
+        eventCard.innerHTML = `
+          <div class="event-info">
+            <h3>${event.title}</h3>
+            <p class="event-description">${event.description}</p>
+            <p class="event-date">📅 ${eventDate.toLocaleDateString('en-US', { 
+              weekday: 'long', 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit'
+            })}</p>
+            <p class="event-location">📍 ${event.location}</p>
+          </div>
+          <div class="countdown-container">
+            <h4>Time Remaining:</h4>
+            <div class="countdown" id="countdown-${event.id}"></div>
+          </div>
+        `;
+        eventsList.appendChild(eventCard);
+
+        // Start countdown for this event
+        const countdownElement = document.getElementById(`countdown-${event.id}`);
+        updateCountdown(eventDate.getTime(), countdownElement);
+        setInterval(() => updateCountdown(eventDate.getTime(), countdownElement), 1000);
+      });
+    }
+
+    // Initialize events display
+    displayEvents();
+  </script>
+
+  <script src="countdown.js"></script>
+
+  <script>
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', currentTheme);
+    
+    darkModeToggle.addEventListener('click', () => {
+      const theme = html.getAttribute('data-theme');
+      const newTheme = theme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
+</body>
+</html>

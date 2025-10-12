@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qur'an Club - MRIS Council</title>
+  <meta name="description" content="Join the MRIS Qur'an Club - learn, recite, and strengthen your understanding of the Qur'an.">
+  <link rel="icon" href="mris-sc-logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container">
+      <a href="mrismswebsite.html" class="nav-logo">
+        <img src="manarat.jpeg" alt="MRIS Logo">
+        MRIS Council
+        <!-- <div class="countdown-pill" id="header-countdown" style="display: none;">
+          <span class="pill-icon">⏰</span>
+          <span class="pill-text" id="pill-text">Next Event</span>
+        </div> -->
+      </a>
+      <div class="links">
+        <a href="clubs.html" class="btn btn-dark">Clubs</a>
+        <a href="news.html" class="btn btn-dark">News</a>
+        <a href="events.html" class="btn btn-dark">Events</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <h1>📖 Qur'an Club</h1>
+    <span class="club-status active">Active Now</span>
+    <p>Learn, recite, and strengthen your understanding of the Qur'an with peers in a supportive environment.</p>
+  </header>
+
+  <!-- Club Details -->
+  <section>
+    <h2>About Qur'an Club</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>👥 Members</h3>
+        <p class="member-number">11</p>
+      </div>
+      <div class="card">
+        <h3>📅 Meeting Schedule</h3>
+        <p>Every Monday & Thursday<br>6:45 AM - 7:15 AM</p>
+      </div>
+      <div class="card">
+        <h3>📍 Location</h3>
+        <p>Hall Behind Reception<br>Grade 9 & 12 Musalla</p>
+      </div>
+    </div>
+
+    <div class="club-details">
+      <h2>What We Do</h2>
+      <p class="intro">
+        The Qur'an Club provides a welcoming space for students to deepen their connection with the Qur'an through recitation, memorization, and understanding its teachings.
+      </p>
+      
+      <h3>Activities Include:</h3>
+      <ul>
+        <li>Qur'an recitation practice with proper Tajweed</li>
+        <li>Memorization support and Hifz programs</li>
+      </ul>
+
+      <h3>Who Can Join?</h3>
+      <p>
+        All Muslim students are welcome regardless of their current level of Qur'anic knowledge. Whether you're just starting to learn or already proficient, join us in this blessed journey.
+      </p>
+
+      <h3>Club Leaders</h3>
+      <p>
+        <strong>Led by:</strong> Islamic Department and Youssef Ahmed
+      </p>
+
+      <h3>Sign Up</h3>
+      <p>
+        Ready to join the Qur'an Club? Sign up using our website to get started!
+      </p>
+      <div class="signup-container">
+        <a href="https://youssef-coders.github.io/Quran-Program/" target="_blank" class="btn btn-primary">Sign Up Here</a>
+      </div>
+    </div>
+
+    <div class="back-button-container">
+      <a href="clubs.html" class="btn btn-primary">← Back to All Clubs</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 MRIS Council. Student-powered, always.
+  </footer>
+
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle" class="btn-icon" aria-label="Toggle dark mode">
+    <span class="icon-sun">☀️</span>
+    <span class="icon-moon">🌙</span>
+  </button>
+
+  <script src="countdown.js"></script>
+
+  <script>
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', currentTheme);
+    
+    darkModeToggle.addEventListener('click', () => {
+      const theme = html.getAttribute('data-theme');
+      const newTheme = theme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
+</body>
+</html>
+

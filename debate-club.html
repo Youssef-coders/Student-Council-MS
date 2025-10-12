@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debate Club - MRIS Council</title>
+  <meta name="description" content="Join the MRIS Debate Club - develop public speaking skills and engage in competitive debates.">
+  <link rel="icon" href="mris-sc-logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container">
+      <a href="mrismswebsite.html" class="nav-logo">
+        <img src="manarat.jpeg" alt="MRIS Logo">
+        MRIS Council
+        <!-- <div class="countdown-pill" id="header-countdown" style="display: none;">
+          <span class="pill-icon">⏰</span>
+          <span class="pill-text" id="pill-text">Next Event</span>
+        </div> -->
+      </a>
+      <div class="links">
+        <a href="clubs.html" class="btn btn-dark">Clubs</a>
+        <a href="news.html" class="btn btn-dark">News</a>
+        <a href="events.html" class="btn btn-dark">Events</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <h1>🎤 Debate Club</h1>
+    <span class="club-status upcoming">Coming Soon</span>
+    <p>Develop public speaking skills and engage in competitive debates.</p>
+  </header>
+
+  <!-- Club Details -->
+  <section>
+    <h2>About Debate Club</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>👥 Members</h3>
+        <p class="member-number">0</p>
+      </div>
+      <div class="card">
+        <h3>📅 Meeting Schedule</h3>
+        <p>TBA - Coming Soon</p>
+      </div>
+      <div class="card">
+        <h3>📍 Location</h3>
+        <p>TBA - Coming Soon</p>
+      </div>
+    </div>
+
+    <div class="club-details">
+      <h2>What We Do</h2>
+      <p class="intro">
+        The Debate Club helps students develop critical thinking, public speaking, and argumentation skills through structured debates and discussions on current events and important topics.
+      </p>
+      
+      <h3>Activities Include:</h3>
+      <ul>
+        <li>Weekly debate practice sessions</li>
+        <li>Research and argument preparation</li>
+        <li>Public speaking workshops</li>
+        <li>Mock debates and competitions</li>
+        <li>Discussion of current events and social issues</li>
+        <li>Participation in interschool debate tournaments</li>
+      </ul>
+
+      <h3>Who Can Join?</h3>
+      <p>
+        All students interested in improving their communication skills! Whether you're comfortable speaking in front of crowds or want to overcome stage fright, we welcome you.
+      </p>
+    </div>
+
+    <div class="back-button-container">
+      <a href="clubs.html" class="btn btn-primary">← Back to All Clubs</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 MRIS Council. Student-powered, always.
+  </footer>
+
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle" class="btn-icon" aria-label="Toggle dark mode">
+    <span class="icon-sun">☀️</span>
+    <span class="icon-moon">🌙</span>
+  </button>
+
+  <script src="countdown.js"></script>
+
+  <script>
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', currentTheme);
+    
+    darkModeToggle.addEventListener('click', () => {
+      const theme = html.getAttribute('data-theme');
+      const newTheme = theme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
+</body>
+</html>
+

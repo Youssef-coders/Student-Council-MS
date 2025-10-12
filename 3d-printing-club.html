@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Printing Club - MRIS Council</title>
+  <meta name="description" content="Join the MRIS 3D Printing Club - design and print creative 3D models.">
+  <link rel="icon" href="mris-sc-logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container">
+      <a href="mrismswebsite.html" class="nav-logo">
+        <img src="manarat.jpeg" alt="MRIS Logo">
+        MRIS Council
+        <!-- <div class="countdown-pill" id="header-countdown" style="display: none;">
+          <span class="pill-icon">⏰</span>
+          <span class="pill-text" id="pill-text">Next Event</span>
+        </div> -->
+      </a>
+      <div class="links">
+        <a href="clubs.html" class="btn btn-dark">Clubs</a>
+        <a href="news.html" class="btn btn-dark">News</a>
+        <a href="events.html" class="btn btn-dark">Events</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <h1>🖨️ 3D Printing Club</h1>
+    <span class="club-status upcoming">Coming Soon</span>
+    <p>Design and print creative 3D models, bringing your ideas to life.</p>
+  </header>
+
+  <!-- Club Details -->
+  <section>
+    <h2>About 3D Printing Club</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>👥 Members</h3>
+        <p class="member-number">0</p>
+      </div>
+      <div class="card">
+        <h3>📅 Meeting Schedule</h3>
+        <p>TBA - Coming Soon</p>
+      </div>
+      <div class="card">
+        <h3>📍 Location</h3>
+        <p>TBA - Coming Soon</p>
+      </div>
+    </div>
+
+    <div class="club-details">
+      <h2>What We Do</h2>
+      <p class="intro">
+        The 3D Printing Club combines creativity with technology. Learn to design 3D models and watch them come to life using our 3D printers.
+      </p>
+      
+      <h3>Activities Include:</h3>
+      <ul>
+        <li>3D modeling software tutorials (Tinkercad, Fusion 360, Blender)</li>
+        <li>Design projects and challenges</li>
+        <li>Operating 3D printers</li>
+        <li>Creating functional and artistic objects</li>
+        <li>Collaborative group projects</li>
+        <li>Learning about materials and printing techniques</li>
+      </ul>
+
+      <h3>Who Can Join?</h3>
+      <p>
+        Anyone curious about 3D printing and design! No prior experience with 3D modeling required - we'll teach you everything from scratch.
+      </p>
+    </div>
+
+    <div class="back-button-container">
+      <a href="clubs.html" class="btn btn-primary">← Back to All Clubs</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 MRIS Council. Student-powered, always.
+  </footer>
+
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle" class="btn-icon" aria-label="Toggle dark mode">
+    <span class="icon-sun">☀️</span>
+    <span class="icon-moon">🌙</span>
+  </button>
+
+  <script src="countdown.js"></script>
+
+  <script>
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', currentTheme);
+    
+    darkModeToggle.addEventListener('click', () => {
+      const theme = html.getAttribute('data-theme');
+      const newTheme = theme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
+</body>
+</html>
+

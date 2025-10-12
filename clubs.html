@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clubs - MRIS Council</title>
+  <meta name="description" content="Explore MRIS clubs - from sports to academics, Qur'an studies, and more. Find your passion.">
+  <link rel="icon" href="mris-sc-logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container">
+      <a href="mrismswebsite.html" class="nav-logo">
+        <img src="manarat.jpeg" alt="MRIS Logo">
+        MRIS Council
+        <!-- <div class="countdown-pill" id="header-countdown" style="display: none;">
+          <span class="pill-icon">⏰</span>
+          <span class="pill-text" id="pill-text">Next Event</span>
+        </div> -->
+      </a>
+      <div class="links">
+        <a href="clubs.html" class="btn btn-dark active">Clubs</a>
+        <a href="news.html" class="btn btn-dark">News</a>
+        <a href="events.html" class="btn btn-dark">Events</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <h1>Our Clubs & Activities</h1>
+    <p>From sports competitions to Qur'an club sessions and creative challenges, we make school life meaningful.</p>
+  </header>
+
+  <!-- Clubs Content -->
+  <section>
+    <h2>Our School Clubs</h2>
+    <p>Join active clubs or stay tuned for upcoming ones launching soon!</p>
+    <div class="cards">
+      
+      <!-- Chess Club - Upcoming -->
+      <div class="club-card upcoming">
+        <span class="club-status upcoming">Coming Soon</span>
+        <h3>♟️ Chess Club</h3>
+        <p>Master strategic thinking and compete in chess tournaments.</p>
+        <div class="member-count">👥 Members: 0</div>
+        <a class="btn btn-primary disabled mt-1">Learn More</a>
+      </div>
+
+      <!-- Quran Club - Active -->
+      <div class="club-card active">
+        <span class="club-status active">Active Now</span>
+        <h3>📖 Qur'an Club</h3>
+        <p>Learn, recite, and strengthen your understanding of the Qur'an with peers in a supportive environment.</p>
+        <div class="member-count">👥 Members: 11</div>
+        <a href="quran-club.html" class="btn btn-primary mt-1">Learn More</a>
+      </div>
+
+      <!-- Programming Club - Upcoming -->
+      <div class="club-card upcoming">
+        <span class="club-status upcoming">Coming Soon</span>
+        <h3>💻 Programming Club</h3>
+        <p>Code, build projects, and learn programming languages together.</p>
+        <div class="member-count">👥 Members: 0</div>
+        <a class="btn btn-primary disabled mt-1">Learn More</a>
+      </div>
+
+      <!-- Cubing Club - Upcoming -->
+      <div class="club-card upcoming">
+        <span class="club-status upcoming">Coming Soon</span>
+        <h3>🧩 Cubing Club</h3>
+        <p>Solve Rubik's cubes, learn algorithms, and compete for speed records.</p>
+        <div class="member-count">👥 Members: 0</div>
+        <a class="btn btn-primary disabled mt-1">Learn More</a>
+      </div>
+
+      <!-- 3D Printing Club - Upcoming -->
+      <div class="club-card upcoming">
+        <span class="club-status upcoming">Coming Soon</span>
+        <h3>🖨️ 3D Printing Club</h3>
+        <p>Design and print creative 3D models, bringing your ideas to life.</p>
+        <div class="member-count">👥 Members: 0</div>
+        <a class="btn btn-primary disabled mt-1">Learn More</a>
+      </div>
+
+      <!-- Debate Club - Upcoming -->
+      <div class="club-card upcoming">
+        <span class="club-status upcoming">Coming Soon</span>
+        <h3>🎤 Debate Club</h3>
+        <p>Develop public speaking skills and engage in competitive debates.</p>
+        <div class="member-count">👥 Members: 0</div>
+        <a class="btn btn-primary disabled mt-1">Learn More</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 MRIS Council. Student-powered, always.
+  </footer>
+
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle" class="btn-icon" aria-label="Toggle dark mode">
+    <span class="icon-sun">☀️</span>
+    <span class="icon-moon">🌙</span>
+  </button>
+
+  <script src="countdown.js"></script>
+
+  <script>
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', currentTheme);
+    
+    darkModeToggle.addEventListener('click', () => {
+      const theme = html.getAttribute('data-theme');
+      const newTheme = theme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
+</body>
+</html>
+
