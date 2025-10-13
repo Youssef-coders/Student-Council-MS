@@ -1444,10 +1444,11 @@ html[data-theme="dark"] .announcement-badge {
 }
 
 html[data-theme="dark"] .announcement-title {
-  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #fbbf24 100%);
+  background: linear-gradient(135deg, #93c5fd 0%, #fbbf24 50%, #fde047 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: brightness(1.2);
 }
 
 .announcement-subtitle {
