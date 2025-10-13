@@ -1475,6 +1475,45 @@ html[data-theme="dark"] .announcement-message {
 
 .announcement-qr {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-announcement {
+  font-size: 1.3rem;
+  padding: 1.2rem 2.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(30, 64, 175, 0.4);
+  transition: all 0.3s ease;
+  animation: pulseButton 2s ease-in-out infinite;
+  border: 2px solid rgba(30, 64, 175, 0.3);
+}
+
+.btn-announcement:hover {
+  transform: scale(1.08) translateY(-3px);
+  box-shadow: 0 12px 30px rgba(30, 64, 175, 0.6);
+}
+
+html[data-theme="dark"] .btn-announcement {
+  box-shadow: 0 8px 20px rgba(96, 165, 250, 0.5);
+  border: 2px solid rgba(96, 165, 250, 0.4);
+}
+
+html[data-theme="dark"] .btn-announcement:hover {
+  box-shadow: 0 12px 30px rgba(96, 165, 250, 0.7);
+}
+
+@keyframes pulseButton {
+  0%, 100% {
+    box-shadow: 0 8px 20px rgba(30, 64, 175, 0.4);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(30, 64, 175, 0.6),
+                0 0 30px rgba(30, 64, 175, 0.3);
+  }
 }
 
 .qr-code-img {
@@ -1547,6 +1586,11 @@ html[data-theme="dark"] .qr-label {
   
   .announcement-message {
     font-size: 1.1rem;
+  }
+  
+  .btn-announcement {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
   }
   
   .qr-code-img {
