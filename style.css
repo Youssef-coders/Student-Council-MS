@@ -720,15 +720,28 @@ html[data-theme="dark"] .card {
   opacity: 1;
 }
 .card h3 { 
-  color: var(--text-primary); 
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom:1rem; 
   font-size:1.5rem; 
   transition: all 0.3s ease; 
   font-weight: 700;
   animation: fadeIn 1s ease-out;
+  background-size: 200% auto;
 }
+
+/* Dark mode card heading gradient */
+html[data-theme="dark"] .card h3 {
+  background: linear-gradient(135deg, #ffffff 0%, #93c5fd 50%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .card:hover h3 {
-  color: #1e40af;
+  background-position: right center;
 }
 .card p { 
   color: var(--text-muted); 
@@ -806,8 +819,20 @@ html[data-theme="dark"] .club-card.upcoming p {
   font-size:1.75rem; 
   margin-bottom:1.5rem; 
   transition: all 0.3s ease;
-  color: var(--text-primary);
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: 700;
+  background-size: 200% auto;
+}
+
+/* Dark mode club heading gradient */
+html[data-theme="dark"] .club-card h3 {
+  background: linear-gradient(135deg, #ffffff 0%, #93c5fd 50%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .club-card:hover h3 { color: #1e40af; }
 .club-card.active h3 { 
@@ -1335,13 +1360,25 @@ html[data-theme="dark"] .team-member {
 .member-name {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text-primary);
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 0.75rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  background-size: 200% auto;
+}
+
+/* Dark mode member name gradient */
+html[data-theme="dark"] .member-name {
+  background: linear-gradient(135deg, #ffffff 0%, #93c5fd 50%, #60a5fa 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
 }
 
 .team-member:hover .member-name {
-  color: #1e40af;
+  background-position: right center;
 }
 
 .member-role {
