@@ -380,16 +380,40 @@ html[data-theme="dark"] #loading-screen {
   display: none; /* Chrome, Safari, Opera */
 }
 
+/* Force background colors on html to prevent browser auto dark mode */
+html {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+
+html[data-theme="dark"] {
+  background: #1e293b !important;
+  background-color: #1e293b !important;
+}
+
 body { 
   margin: 0; 
   font-family: 'Inter', 'Roboto', 'Segoe UI', sans-serif; 
-  background: var(--bg-primary);
-  color: var(--text-secondary); 
+  background: var(--bg-primary) !important;
+  background-color: var(--bg-primary) !important;
+  color: var(--text-secondary) !important;
   scroll-behavior:smooth;
   position: relative;
   transition: background 0.3s ease, color 0.3s ease;
   overflow-y: scroll;
   animation: fadeIn 0.5s ease-in;
+}
+
+/* Force light mode colors by default - prevent browser override */
+html:not([data-theme="dark"]) body {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+
+/* Force dark mode colors only when explicitly set */
+html[data-theme="dark"] body {
+  background: #1e293b !important;
+  background-color: #1e293b !important;
 }
 
 /* Page content fade in */
