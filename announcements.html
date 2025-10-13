@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Programming Club - MRIS Council</title>
-  <meta name="description" content="Join the MRIS Programming Club - code, build projects, and learn programming languages.">
+  <title>Announcements - MRIS Council</title>
+  <meta name="description" content="Latest announcements and important updates from MRIS Council.">
   <link rel="icon" href="mris-sc-logo.png">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -28,16 +28,16 @@
       <a href="index.html" class="nav-logo">
         <img src="manarat.jpeg" alt="MRIS Logo">
         MRIS Council
-        <!-- <div class="countdown-pill" id="header-countdown" style="display: none;">
+        <div class="countdown-pill" id="header-countdown" style="display: none;">
           <span class="pill-icon">⏰</span>
           <span class="pill-text" id="pill-text">Next Event</span>
-        </div> -->
+        </div>
       </a>
       <div class="links">
         <a href="clubs.html" class="btn btn-dark">Clubs</a>
         <a href="news.html" class="btn btn-dark">News</a>
         <a href="events.html" class="btn btn-dark">Events</a>
-        <a href="announcements.html" class="btn btn-dark">Announcements</a>
+        <a href="announcements.html" class="btn btn-dark active">Announcements</a>
         <a href="team.html" class="btn btn-dark">Team</a>
       </div>
     </div>
@@ -45,53 +45,21 @@
 
   <!-- Hero -->
   <header class="hero">
-    <h1>💻 Programming Club</h1>
-    <span class="club-status upcoming">Coming Soon</span>
-    <p>Code, build projects, and learn programming languages together.</p>
+    <h1>📢 Announcements</h1>
+    <p>Stay updated with important messages and opportunities from MRIS Council.</p>
   </header>
 
-  <!-- Club Details -->
+  <!-- Announcements Content -->
   <section>
-    <h2>About Programming Club</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>👥 Members</h3>
-        <p class="member-number">0</p>
+    <div class="announcement-container">
+      <div class="announcement-text">
+        <h2>Got a good club idea? Suggest it to us!</h2>
+        <p class="announcement-message">We're always looking for new and exciting club ideas! Share your suggestions by scanning the QR code.</p>
       </div>
-      <div class="card">
-        <h3>📅 Meeting Schedule</h3>
-        <p>TBA - Coming Soon</p>
+      <div class="announcement-qr">
+        <img src="manarat.jpeg" alt="Suggestion QR Code" class="qr-code-img">
+        <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--text-light);">Scan to suggest</p>
       </div>
-      <div class="card">
-        <h3>📍 Location</h3>
-        <p>TBA - Coming Soon</p>
-      </div>
-    </div>
-
-    <div class="club-details">
-      <h2>What We Do</h2>
-      <p class="intro">
-        The Programming Club is designed for students passionate about coding and technology. Learn to build apps, websites, games, and more while developing problem-solving skills.
-      </p>
-      
-      <h3>Activities Include:</h3>
-      <ul>
-        <li>Coding workshops and tutorials</li>
-        <li>Group project development</li>
-        <li>Programming language courses (Python, JavaScript, etc.)</li>
-        <li>Hackathons and coding competitions</li>
-        <li>Guest speakers from tech industry</li>
-        <li>Web development and app creation</li>
-      </ul>
-
-      <h3>Who Can Join?</h3>
-      <p>
-        Everyone interested in programming! No prior experience needed. We'll start from the basics and advance together.
-      </p>
-    </div>
-
-    <div class="back-button-container">
-      <a href="clubs.html" class="btn btn-primary">← Back to All Clubs</a>
     </div>
   </section>
 
@@ -136,6 +104,30 @@
       
       html.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
+    });
+  </script>
+
+  <script>
+    // Scroll Animation Observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.announcement-container').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+      observer.observe(el);
     });
   </script>
 </body>
