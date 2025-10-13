@@ -8,10 +8,38 @@
   <meta name="description" content="MRIS Council: student-led, student-powered. Explore our projects, activities, and community shaping the future of our school.">
   <link rel="icon" href="mris-sc-logo.png">
   <style>
-    /* Force light background immediately - prevent browser dark mode override */
+    /* AGGRESSIVE: Force light background and text colors - override ALL browser dark mode attempts */
     html, body {
       background: #ffffff !important;
       background-color: #ffffff !important;
+      color: #1e40af !important;
+    }
+    
+    /* Override browser's prefers-color-scheme dark mode detection */
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme="dark"]), 
+      html:not([data-theme="dark"]) body {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        color: #1e40af !important;
+      }
+    }
+    
+    /* Prevent browser from inverting colors or applying filters */
+    html, body, * {
+      -webkit-filter: none !important;
+      filter: none !important;
+      -webkit-text-fill-color: initial !important;
+    }
+    
+    /* Force all child elements in light mode */
+    html:not([data-theme="dark"]) nav,
+    html:not([data-theme="dark"]) section,
+    html:not([data-theme="dark"]) header,
+    html:not([data-theme="dark"]) footer,
+    html:not([data-theme="dark"]) div {
+      background-color: transparent !important;
+      color: inherit !important;
     }
   </style>
   <link rel="stylesheet" href="style.css">
@@ -95,7 +123,7 @@
         <p class="announcement-subtitle">We're always looking for new and exciting club ideas! Share your suggestions using the form.</p>
       </div>
       <div class="announcement-qr">
-        <a href="https://forms.gle/bJvpkYgcWHRUkwcy9" target="_blank" class="btn btn-primary btn-announcement">
+        <a href="forms.html" class="btn btn-primary btn-announcement">
           📝 Submit Your Idea
         </a>
       </div>

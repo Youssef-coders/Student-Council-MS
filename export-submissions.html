@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>Export Club Submissions - MRIS Council Admin</title>
+  <link rel="icon" href="mris-sc-logo.png">
+  <style>
+    html, body {
+      background: #ffffff !important;
+      background-color: #ffffff !important;
+      color: #1e40af !important;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme="dark"]), 
+      html:not([data-theme="dark"]) body {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        color: #1e40af !important;
+      }
+    }
+    
+    html, body, * {
+      -webkit-filter: none !important;
+      filter: none !important;
+      -webkit-text-fill-color: initial !important;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="manarat.jpeg" alt="MRIS Logo">
+        MRIS Council - Admin
+      </a>
+      <div class="links">
+        <a href="index.html" class="btn btn-dark">Back to Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <h1>📊 Export Club Submissions</h1>
+    <p>Download all club idea suggestions as a spreadsheet</p>
+  </header>
+
+  <section>
+    <div class="form-container">
+      <div id="stats" style="margin-bottom: 2rem;">
+        <h3 style="color: var(--text-primary);">Submission Statistics</h3>
+        <p id="total-submissions" style="font-size: 1.2rem; font-weight: 600; color: var(--text-primary);">Total Submissions: 0</p>
+      </div>
+
+      <div id="submissions-list" style="margin-bottom: 2rem;">
+        <h3 style="color: var(--text-primary); margin-bottom: 1rem;">All Submissions</h3>
+        <div id="submissions-container"></div>
+      </div>
+
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <button id="export-csv" class="btn btn-primary">
+          📥 Download as CSV (Spreadsheet)
+        </button>
+        <button id="clear-all" class="btn btn-dark" style="background: #dc2626;">
+          🗑️ Clear All Data
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 MRIS Council. Student-powered, always.
+  </footer>
+
+  <button id="darkModeToggle" class="btn-icon" aria-label="Toggle dark mode">
+    <span class="icon-sun">☀️</span>
+    <span class="icon-moon">🌙</span>
+  </button>
+
+  <script>
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+    
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', currentTheme);
+    
+    darkModeToggle.addEventListener('click', () => {
+      const theme = html.getAttribute('data-theme');
+      const newTheme = theme === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
+
+  <script>
+    // Load and display submissions
+    function loadSubmissions() {
+      const allSubmissions = JSON.parse(localStorage.getItem('allClubSubmissions') || '[]');
+      
+      // Update count
+      document.getElementById('total-submissions').textContent = `Total Submissions: ${allSubmissions.length}`;
+      
+      // Display submissions
+      const container = document.getElementById('submissions-container');
+      container.innerHTML = '';
+      
+      if (allSubmissions.length === 0) {
+        container.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 2rem;">No submissions yet.</p>';
+        return;
+      }
+      
+      allSubmissions.forEach((submission, index) => {
+        const card = document.createElement('div');
+        card.style.cssText = 'background: rgba(255,255,255,0.5); border: 1px solid rgba(30,64,175,0.3); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem;';
+        
+        const date = new Date(submission.timestamp).toLocaleString();
+        
+        card.innerHTML = `
+          <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">${index + 1}. ${submission.name} (${submission.class})</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">Submitted: ${date}</p>
+          <div style="margin-left: 1rem;">
+            <p style="margin-bottom: 0.5rem;"><strong>1.</strong> ${submission.suggestion1}</p>
+            ${submission.suggestion2 ? `<p style="margin-bottom: 0.5rem;"><strong>2.</strong> ${submission.suggestion2}</p>` : ''}
+            ${submission.suggestion3 ? `<p style="margin-bottom: 0.5rem;"><strong>3.</strong> ${submission.suggestion3}</p>` : ''}
+          </div>
+        `;
+        
+        container.appendChild(card);
+      });
+    }
+    
+    // Export to CSV
+    document.getElementById('export-csv').addEventListener('click', () => {
+      const allSubmissions = JSON.parse(localStorage.getItem('allClubSubmissions') || '[]');
+      
+      if (allSubmissions.length === 0) {
+        alert('No submissions to export!');
+        return;
+      }
+      
+      // Create CSV content
+      let csv = 'Name,Class,Suggestion 1,Suggestion 2,Suggestion 3,Timestamp\n';
+      
+      allSubmissions.forEach(sub => {
+        const row = [
+          `"${sub.name}"`,
+          `"${sub.class}"`,
+          `"${sub.suggestion1}"`,
+          `"${sub.suggestion2 || ''}"`,
+          `"${sub.suggestion3 || ''}"`,
+          `"${new Date(sub.timestamp).toLocaleString()}"`
+        ].join(',');
+        csv += row + '\n';
+      });
+      
+      // Create download link
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      const url = URL.createObjectURL(blob);
+      
+      link.setAttribute('href', url);
+      link.setAttribute('download', `club_submissions_${new Date().toISOString().split('T')[0]}.csv`);
+      link.style.visibility = 'hidden';
+      
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      alert(`Exported ${allSubmissions.length} submissions successfully!`);
+    });
+    
+    // Clear all data
+    document.getElementById('clear-all').addEventListener('click', () => {
+      if (confirm('Are you sure you want to delete ALL submissions? This cannot be undone!')) {
+        if (confirm('FINAL WARNING: This will permanently delete all data. Continue?')) {
+          localStorage.removeItem('allClubSubmissions');
+          loadSubmissions();
+          alert('All submissions have been deleted.');
+        }
+      }
+    });
+    
+    // Load submissions on page load
+    window.addEventListener('DOMContentLoaded', loadSubmissions);
+  </script>
+
+  <style>
+    html[data-theme="dark"] #submissions-container > div {
+      background: rgba(51, 65, 85, 0.5) !important;
+      border-color: rgba(96, 165, 250, 0.3) !important;
+    }
+    
+    html[data-theme="dark"] h4,
+    html[data-theme="dark"] p,
+    html[data-theme="dark"] strong {
+      color: #ffffff !important;
+    }
+  </style>
+</body>
+</html>
+

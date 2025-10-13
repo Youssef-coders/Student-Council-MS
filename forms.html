@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>Submit Your Club Ideas - MRIS Council</title>
+  <meta name="description" content="Suggest your club ideas to MRIS Council.">
+  <link rel="icon" href="mris-sc-logo.png">
+  <style>
+    /* AGGRESSIVE: Force light background and text colors - override ALL browser dark mode attempts */
+    html, body {
+      background: #ffffff !important;
+      background-color: #ffffff !important;
+      color: #1e40af !important;
+    }
+    
+    /* Override browser's prefers-color-scheme dark mode detection */
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme="dark"]), 
+      html:not([data-theme="dark"]) body {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        color: #1e40af !important;
+      }
+    }
+    
+    /* Prevent browser from inverting colors or applying filters */
+    html, body, * {
+      -webkit-filter: none !important;
+      filter: none !important;
+      -webkit-text-fill-color: initial !important;
+    }
+    
+    /* Force all child elements in light mode */
+    html:not([data-theme="dark"]) nav,
+    html:not([data-theme="dark"]) section,
+    html:not([data-theme="dark"]) header,
+    html:not([data-theme="dark"]) footer,
+    html:not([data-theme="dark"]) div {
+      background-color: transparent !important;
+      color: inherit !important;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader-container">
+      <div class="loader-logo">
+        <img src="manarat.jpeg" alt="Loading" class="loader-img">
+      </div>
+      <div class="loader-spinner"></div>
+      <div class="loader-text">MRIS Council</div>
+      <div class="loader-subtext">Loading...</div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="manarat.jpeg" alt="MRIS Logo">
+        MRIS Council
+      </a>
+      <div class="links">
+        <a href="clubs.html" class="btn btn-dark">Clubs</a>
+        <a href="news.html" class="btn btn-dark">News</a>
+        <a href="events.html" class="btn btn-dark">Events</a>
+        <a href="announcements.html" class="btn btn-dark">Announcements</a>
+        <a href="team.html" class="btn btn-dark">Team</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <h1>📝 Suggest Club Ideas</h1>
+    <p>Share your creative ideas for new clubs at MRIS!</p>
+  </header>
+
+  <!-- Form Section -->
+  <section>
+    <div id="form-container" class="form-container">
+      <form id="suggestion-form" class="suggestion-form">
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required placeholder="Enter your full name">
+        </div>
+
+        <div class="form-group">
+          <label for="class">Class *</label>
+          <select id="class" name="class" required>
+            <option value="">Select your class</option>
+            <optgroup label="Grade 7">
+              <option value="7-1">7-1</option>
+              <option value="7-2">7-2</option>
+              <option value="7-3">7-3</option>
+              <option value="7-4">7-4</option>
+              <option value="7-5">7-5</option>
+              <option value="7-6">7-6</option>
+              <option value="7-7">7-7</option>
+              <option value="7-8">7-8</option>
+            </optgroup>
+            <optgroup label="Grade 8">
+              <option value="8-1">8-1</option>
+              <option value="8-2">8-2</option>
+              <option value="8-3">8-3</option>
+              <option value="8-4">8-4</option>
+              <option value="8-5">8-5</option>
+              <option value="8-6">8-6</option>
+              <option value="8-7">8-7</option>
+              <option value="8-8">8-8</option>
+            </optgroup>
+            <optgroup label="Grade 9 - AM">
+              <option value="9AM1">9AM1</option>
+              <option value="9AM2">9AM2</option>
+              <option value="9AM3">9AM3</option>
+              <option value="9AM4">9AM4</option>
+              <option value="9AM5">9AM5</option>
+            </optgroup>
+            <optgroup label="Grade 9 - BR">
+              <option value="9BR1">9BR1</option>
+              <option value="9BR2">9BR2</option>
+              <option value="9BR3">9BR3</option>
+              <option value="9BR4">9BR4</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="suggestion1">First Suggestion *</label>
+          <textarea id="suggestion1" name="suggestion1" required placeholder="Enter your first club idea" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="suggestion2">Second Suggestion (Optional)</label>
+          <textarea id="suggestion2" name="suggestion2" placeholder="Enter your second club idea (optional)" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="suggestion3">Third Suggestion (Optional)</label>
+          <textarea id="suggestion3" name="suggestion3" placeholder="Enter your third club idea (optional)" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-submit">Submit Your Ideas</button>
+      </form>
+    </div>
+
+    <!-- Thank You Message (Hidden by default) -->
+    <div id="thank-you-message" class="thank-you-message" style="display: none;">
+      <div class="thank-you-card">
+        <div class="success-icon">✅</div>
+        <h2>Thank You!</h2>
+        <p>Your club suggestions have been submitted successfully.</p>
+        <p class="small-text">You have already submitted your ideas. You cannot submit again from this device.</p>
+        <a href="index.html" class="btn btn-primary">Back to Home</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 MRIS Council. Student-powered, always.
+  </footer>
+
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle" class="btn-icon" aria-label="Toggle dark mode">
+    <span class="icon-sun">☀️</span>
+    <span class="icon-moon">🌙</span>
+  </button>
+
+  <script src="countdown.js"></script>
+
+  <script>
+    // Loading Screen
+    window.addEventListener('load', () => {
+      const loadingScreen = document.getElementById('loading-screen');
+      setTimeout(() => {
+        loadingScreen.style.opacity = '0';
+        setTimeout(() => {
+          loadingScreen.style.display = 'none';
+        }, 500);
+      }, 1500);
+    });
+  </script>
+
+  <script>
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', currentTheme);
+    
+    // Set meta tag on load to prevent browser override
+    const metaColorScheme = document.querySelector('meta[name="color-scheme"]');
+    if (metaColorScheme) {
+      metaColorScheme.setAttribute('content', currentTheme);
+    }
+    
+    darkModeToggle.addEventListener('click', () => {
+      const theme = html.getAttribute('data-theme');
+      const newTheme = theme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Update meta tag to prevent browser override
+      const metaColorScheme = document.querySelector('meta[name="color-scheme"]');
+      if (metaColorScheme) {
+        metaColorScheme.setAttribute('content', newTheme);
+      }
+    });
+  </script>
+
+  <script>
+    // Check if user has already submitted
+    window.addEventListener('DOMContentLoaded', () => {
+      const hasSubmitted = localStorage.getItem('clubSuggestionsSubmitted');
+      
+      if (hasSubmitted === 'true') {
+        // Hide form, show thank you message
+        document.getElementById('form-container').style.display = 'none';
+        document.getElementById('thank-you-message').style.display = 'block';
+      }
+    });
+
+    // Handle form submission
+    document.getElementById('suggestion-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = {
+        name: document.getElementById('name').value,
+        class: document.getElementById('class').value,
+        suggestion1: document.getElementById('suggestion1').value,
+        suggestion2: document.getElementById('suggestion2').value,
+        suggestion3: document.getElementById('suggestion3').value,
+        timestamp: new Date().toISOString()
+      };
+      
+      // Save individual submission
+      localStorage.setItem('clubSuggestionsSubmitted', 'true');
+      localStorage.setItem('clubSuggestionsData', JSON.stringify(formData));
+      
+      // Add to central submissions list
+      let allSubmissions = JSON.parse(localStorage.getItem('allClubSubmissions') || '[]');
+      allSubmissions.push(formData);
+      localStorage.setItem('allClubSubmissions', JSON.stringify(allSubmissions));
+      
+      // Log to console
+      console.log('Form submitted:', formData);
+      console.log('Total submissions:', allSubmissions.length);
+      
+      // Hide form, show thank you message
+      document.getElementById('form-container').style.display = 'none';
+      document.getElementById('thank-you-message').style.display = 'block';
+      
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+  <script>
+    // Scroll Animation Observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.form-container, .thank-you-message').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
+
