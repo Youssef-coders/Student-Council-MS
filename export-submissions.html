@@ -128,6 +128,14 @@
             ${submission.suggestion2 ? `<p style="margin-bottom: 0.5rem;"><strong>2.</strong> ${submission.suggestion2}</p>` : ''}
             ${submission.suggestion3 ? `<p style="margin-bottom: 0.5rem;"><strong>3.</strong> ${submission.suggestion3}</p>` : ''}
           </div>
+          ${submission.location || submission.howItWorks || submission.whyCreate ? `
+            <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(30,64,175,0.2);">
+              <p style="font-weight: 600; margin-bottom: 0.5rem;">Extra Details:</p>
+              ${submission.location ? `<p style="margin-bottom: 0.5rem;"><strong>Location:</strong> ${submission.location}</p>` : ''}
+              ${submission.howItWorks ? `<p style="margin-bottom: 0.5rem;"><strong>How it works:</strong> ${submission.howItWorks}</p>` : ''}
+              ${submission.whyCreate ? `<p style="margin-bottom: 0.5rem;"><strong>Why create:</strong> ${submission.whyCreate}</p>` : ''}
+            </div>
+          ` : ''}
         `;
         
         container.appendChild(card);
@@ -144,7 +152,7 @@
       }
       
       // Create CSV content
-      let csv = 'Name,Class,Suggestion 1,Suggestion 2,Suggestion 3,Timestamp\n';
+      let csv = 'Name,Class,Suggestion 1,Suggestion 2,Suggestion 3,Location,How It Works,Why Create,Timestamp\n';
       
       allSubmissions.forEach(sub => {
         const row = [
@@ -153,6 +161,9 @@
           `"${sub.suggestion1}"`,
           `"${sub.suggestion2 || ''}"`,
           `"${sub.suggestion3 || ''}"`,
+          `"${sub.location || ''}"`,
+          `"${sub.howItWorks || ''}"`,
+          `"${sub.whyCreate || ''}"`,
           `"${new Date(sub.timestamp).toLocaleString()}"`
         ].join(',');
         csv += row + '\n';

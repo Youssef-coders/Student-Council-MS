@@ -145,6 +145,26 @@
           <textarea id="suggestion3" name="suggestion3" placeholder="Enter your third club idea (optional)" rows="3"></textarea>
         </div>
 
+        <div class="form-group">
+          <h3 style="color: var(--text-primary); margin-top: 1rem; margin-bottom: 0.5rem;" class="form-section-heading">Extra Details (Optional)</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;" class="form-section-subtitle">Provide additional information to strengthen your suggestions.</p>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Proposed Location (Optional)</label>
+          <input type="text" id="location" name="location" placeholder="e.g., Library, 9AM1, Cafeteria">
+        </div>
+
+        <div class="form-group">
+          <label for="how-it-works">How Will the Club Work? (Optional)</label>
+          <textarea id="how-it-works" name="how-it-works" placeholder="Describe meeting schedule, activities, structure, etc." rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="why-create">Why Should This Club Be Created? (Optional)</label>
+          <textarea id="why-create" name="why-create" placeholder="Explain the benefits, importance, or why students would be interested" rows="3"></textarea>
+        </div>
+
         <button type="submit" class="btn btn-primary btn-submit">Submit Your Ideas</button>
       </form>
     </div>
@@ -239,6 +259,9 @@
         suggestion1: document.getElementById('suggestion1').value,
         suggestion2: document.getElementById('suggestion2').value,
         suggestion3: document.getElementById('suggestion3').value,
+        location: document.getElementById('location').value,
+        howItWorks: document.getElementById('how-it-works').value,
+        whyCreate: document.getElementById('why-create').value,
         timestamp: new Date().toISOString()
       };
       

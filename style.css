@@ -1723,6 +1723,14 @@ html[data-theme="dark"] .form-group label {
   color: #ffffff !important;
 }
 
+html[data-theme="dark"] .form-section-heading {
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] .form-section-subtitle {
+  color: #e5e7eb !important;
+}
+
 .form-group input,
 .form-group select,
 .form-group textarea {
