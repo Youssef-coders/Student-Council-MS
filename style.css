@@ -21,9 +21,14 @@
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.15);
   --shadow-lg: 0 20px 40px rgba(59, 130, 246, 0.15);
+  
+  /* Prevent browser from auto-applying dark mode */
+  color-scheme: only light;
 }
 
 html[data-theme="dark"] {
+  /* Allow dark mode only when explicitly set */
+  color-scheme: only dark;
   --bg-primary: #1e293b;
   --bg-secondary: #334155;
   --bg-card: rgba(51, 65, 85, 0.6);
