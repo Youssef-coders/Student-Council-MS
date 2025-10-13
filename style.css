@@ -1360,7 +1360,7 @@ html[data-theme="dark"] .announcement-section {
   content: '';
   position: absolute;
   inset: -4px;
-  background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcf7f, #4d96ff, #ff6b6b);
+  background: linear-gradient(45deg, #ff6b6b, #ff8e53, #ffd93d, #ff8e53, #ff6b6b);
   background-size: 400% 400%;
   border-radius: 28px;
   z-index: -1;
