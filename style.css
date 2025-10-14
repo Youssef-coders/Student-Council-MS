@@ -370,6 +370,17 @@ html[data-theme="dark"] #loading-screen {
   animation: pulse 2s ease-in-out infinite;
 }
 
+/* Force loading screen text to always be white */
+#loading-screen .loader-text,
+#loading-screen .loader-subtext {
+  color: #ffffff !important;
+}
+
+html[data-theme="light"] #loading-screen .loader-text,
+html[data-theme="light"] #loading-screen .loader-subtext {
+  color: #ffffff !important;
+}
+
 /* Hide scrollbar for all browsers */
 * {
   scrollbar-width: none; /* Firefox */

@@ -32,12 +32,22 @@
       -webkit-text-fill-color: initial !important;
     }
     
+    /* Loading screen MUST have white text always */
+    #loading-screen,
+    #loading-screen *,
+    #loading-screen .loader-text,
+    #loading-screen .loader-subtext,
+    .loader-text,
+    .loader-subtext {
+      color: #ffffff !important;
+    }
+    
     /* Force all child elements in light mode */
     html:not([data-theme="dark"]) nav,
     html:not([data-theme="dark"]) section,
     html:not([data-theme="dark"]) header,
     html:not([data-theme="dark"]) footer,
-    html:not([data-theme="dark"]) div {
+    html:not([data-theme="dark"]) div:not(#loading-screen):not(.loader-text):not(.loader-subtext) {
       background-color: transparent !important;
       color: inherit !important;
     }
