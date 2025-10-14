@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collect School Submissions - MRIS Council</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="color-scheme" content="light">
+  <style>
+    html, body {
+      background: #ffffff !important;
+      color: #1e40af !important;
+    }
+    
+    html:not([data-theme="dark"]) {
+      background: #ffffff !important;
+      color: #1e40af !important;
+    }
+    
+    html:not([data-theme="dark"]) body {
+      background: #ffffff !important;
+      color: #1e40af !important;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme="dark"]) {
+        background: #ffffff !important;
+        color: #1e40af !important;
+      }
+      
+      html:not([data-theme="dark"]) body {
+        background: #ffffff !important;
+        color: #1e40af !important;
+      }
+    }
+    
+    html, body, * {
+      filter: none !important;
+      -webkit-filter: none !important;
+    }
+    
+    .collection-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .collection-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .collection-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .stat-card {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(30,64,175,0.3);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    .submission-list {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(30,64,175,0.3);
+      border-radius: 12px;
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    .submission-item {
+      border-bottom: 1px solid rgba(30,64,175,0.2);
+      padding: 1rem 0;
+    }
+    
+    .submission-item:last-child {
+      border-bottom: none;
+    }
+    
+    .submission-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    
+    .submission-name {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    
+    .submission-time {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    
+    .submission-details {
+      margin-left: 1rem;
+    }
+    
+    .submission-suggestion {
+      margin-bottom: 0.5rem;
+    }
+    
+    .submission-extra {
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid rgba(30,64,175,0.1);
+      font-size: 0.9rem;
+    }
+    
+    .no-submissions {
+      text-align: center;
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 2rem;
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    
+    .btn-collect {
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-collect:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(30,64,175,0.3);
+    }
+    
+    .btn-export {
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-export:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(5,150,105,0.3);
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader-container">
+      <div class="loader-logo">
+        <img src="manarat.jpeg" alt="MRIS Council" class="loader-img">
+      </div>
+      <div class="loader-spinner"></div>
+      <div class="loader-text">Loading Submissions...</div>
+      <div class="loader-subtext">Collecting data from all devices</div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="manarat.jpeg" alt="MRIS Council">
+        <span>MRIS Council</span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="clubs.html">Clubs</a>
+        <a href="news.html">News</a>
+        <a href="events.html">Events</a>
+        <a href="team.html">Team</a>
+        <a href="announcements.html">Announcements</a>
+        <a href="forms.html">Suggestions</a>
+      </div>
+      <button id="darkModeToggle" class="dark-mode-toggle">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <div class="collection-container">
+      <div class="collection-header">
+        <h1 style="background: linear-gradient(135deg, #1e40af, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">📊 School Submissions Collection</h1>
+        <p style="color: var(--text-muted); margin-top: 1rem;">View and collect all club suggestions from students across the school</p>
+      </div>
+
+      <div class="collection-stats">
+        <div class="stat-card">
+          <div class="stat-number" id="total-submissions">0</div>
+          <div class="stat-label">Total Submissions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="unique-devices">0</div>
+          <div class="stat-label">Unique Devices</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="classes-represented">0</div>
+          <div class="stat-label">Classes Represented</div>
+        </div>
+      </div>
+
+      <div class="submission-list">
+        <h3 style="color: var(--text-primary); margin-bottom: 1rem;">All Submissions</h3>
+        <div id="submissions-container">
+          <div class="no-submissions">No submissions yet. Students need to submit forms first.</div>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="btn-collect" onclick="collectAllSubmissions()">🔄 Refresh Collection</button>
+        <button class="btn-export" onclick="exportAllSubmissions()">📥 Export to CSV</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Loading Screen
+    window.addEventListener('load', () => {
+      const loadingScreen = document.getElementById('loading-screen');
+      setTimeout(() => {
+        loadingScreen.style.opacity = '0';
+        setTimeout(() => {
+          loadingScreen.style.display = 'none';
+        }, 500);
+      }, 1500);
+    });
+  </script>
+
+  <script>
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', currentTheme);
+    
+    // Set meta tag on load to prevent browser override
+    const metaColorScheme = document.querySelector('meta[name="color-scheme"]');
+    if (metaColorScheme) {
+      metaColorScheme.setAttribute('content', currentTheme);
+    }
+    
+    darkModeToggle.addEventListener('click', () => {
+      const theme = html.getAttribute('data-theme');
+      const newTheme = theme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Update meta tag
+      if (metaColorScheme) {
+        metaColorScheme.setAttribute('content', newTheme);
+      }
+    });
+  </script>
+
+  <script>
+    // Load and display all submissions
+    function loadAllSubmissions() {
+      // Try to load from centralized storage
+      let allSubmissions = JSON.parse(localStorage.getItem('schoolClubSubmissions') || '[]');
+      
+      // Update stats
+      document.getElementById('total-submissions').textContent = allSubmissions.length;
+      
+      const uniqueDevices = new Set(allSubmissions.map(sub => sub.deviceId)).size;
+      document.getElementById('unique-devices').textContent = uniqueDevices;
+      
+      const uniqueClasses = new Set(allSubmissions.map(sub => sub.class)).size;
+      document.getElementById('classes-represented').textContent = uniqueClasses;
+      
+      // Display submissions
+      const container = document.getElementById('submissions-container');
+      
+      if (allSubmissions.length === 0) {
+        container.innerHTML = '<div class="no-submissions">No submissions yet. Students need to submit forms first.</div>';
+        return;
+      }
+      
+      container.innerHTML = '';
+      
+      allSubmissions.forEach((submission, index) => {
+        const item = document.createElement('div');
+        item.className = 'submission-item';
+        
+        const date = new Date(submission.timestamp).toLocaleString();
+        
+        item.innerHTML = `
+          <div class="submission-header">
+            <div class="submission-name">${submission.name} (${submission.class})</div>
+            <div class="submission-time">${date}</div>
+          </div>
+          <div class="submission-details">
+            <div class="submission-suggestion"><strong>1.</strong> ${submission.suggestion1}</div>
+            ${submission.suggestion2 ? `<div class="submission-suggestion"><strong>2.</strong> ${submission.suggestion2}</div>` : ''}
+            ${submission.suggestion3 ? `<div class="submission-suggestion"><strong>3.</strong> ${submission.suggestion3}</div>` : ''}
+          </div>
+          ${submission.location || submission.howItWorks || submission.whyCreate ? `
+            <div class="submission-extra">
+              <strong>Extra Details:</strong><br>
+              ${submission.location ? `<strong>Location:</strong> ${submission.location}<br>` : ''}
+              ${submission.howItWorks ? `<strong>How it works:</strong> ${submission.howItWorks}<br>` : ''}
+              ${submission.whyCreate ? `<strong>Why create:</strong> ${submission.whyCreate}` : ''}
+            </div>
+          ` : ''}
+        `;
+        
+        container.appendChild(item);
+      });
+    }
+    
+    // Collect all submissions from different devices
+    function collectAllSubmissions() {
+      // This would normally collect from a server
+      // For now, we'll just refresh the display
+      loadAllSubmissions();
+      alert('Submissions refreshed! Check all devices that have submitted forms.');
+    }
+    
+    // Export all submissions
+    function exportAllSubmissions() {
+      let allSubmissions = JSON.parse(localStorage.getItem('schoolClubSubmissions') || '[]');
+      
+      if (allSubmissions.length === 0) {
+        alert('No submissions to export!');
+        return;
+      }
+      
+      // Create CSV content
+      let csv = 'Name,Class,Suggestion 1,Suggestion 2,Suggestion 3,Location,How It Works,Why Create,Timestamp,Device ID\n';
+      
+      allSubmissions.forEach(sub => {
+        const row = [
+          `"${sub.name}"`,
+          `"${sub.class}"`,
+          `"${sub.suggestion1}"`,
+          `"${sub.suggestion2 || ''}"`,
+          `"${sub.suggestion3 || ''}"`,
+          `"${sub.location || ''}"`,
+          `"${sub.howItWorks || ''}"`,
+          `"${sub.whyCreate || ''}"`,
+          `"${new Date(sub.timestamp).toLocaleString()}"`,
+          `"${sub.deviceId || ''}"`
+        ].join(',');
+        csv += row + '\n';
+      });
+      
+      // Create download link
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      const url = URL.createObjectURL(blob);
+      
+      link.setAttribute('href', url);
+      link.setAttribute('download', `school_club_submissions_${new Date().toISOString().split('T')[0]}.csv`);
+      link.style.visibility = 'hidden';
+      
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      alert(`Exported ${allSubmissions.length} submissions successfully!`);
+    }
+    
+    // Load submissions on page load
+    window.addEventListener('DOMContentLoaded', loadAllSubmissions);
+  </script>
+</body>
+</html>

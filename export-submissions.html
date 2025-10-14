@@ -100,7 +100,11 @@
   <script>
     // Load and display submissions
     function loadSubmissions() {
-      const allSubmissions = JSON.parse(localStorage.getItem('allClubSubmissions') || '[]');
+      // Try to load from centralized storage first, then fallback to old storage
+      let allSubmissions = JSON.parse(localStorage.getItem('schoolClubSubmissions') || '[]');
+      if (allSubmissions.length === 0) {
+        allSubmissions = JSON.parse(localStorage.getItem('allClubSubmissions') || '[]');
+      }
       
       // Update count
       document.getElementById('total-submissions').textContent = `Total Submissions: ${allSubmissions.length}`;
@@ -144,7 +148,11 @@
     
     // Export to CSV
     document.getElementById('export-csv').addEventListener('click', () => {
-      const allSubmissions = JSON.parse(localStorage.getItem('allClubSubmissions') || '[]');
+      // Try to load from centralized storage first, then fallback to old storage
+      let allSubmissions = JSON.parse(localStorage.getItem('schoolClubSubmissions') || '[]');
+      if (allSubmissions.length === 0) {
+        allSubmissions = JSON.parse(localStorage.getItem('allClubSubmissions') || '[]');
+      }
       
       if (allSubmissions.length === 0) {
         alert('No submissions to export!');
@@ -189,6 +197,8 @@
     document.getElementById('clear-all').addEventListener('click', () => {
       if (confirm('Are you sure you want to delete ALL submissions? This cannot be undone!')) {
         if (confirm('FINAL WARNING: This will permanently delete all data. Continue?')) {
+          localStorage.removeItem('schoolClubSubmissions');
+          localStorage.removeItem('backupClubSubmissions');
           localStorage.removeItem('allClubSubmissions');
           loadSubmissions();
           alert('All submissions have been deleted.');

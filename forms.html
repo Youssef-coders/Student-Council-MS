@@ -208,6 +208,16 @@
   </script>
 
   <script>
+    // Generate unique device ID
+    function generateDeviceId() {
+      let deviceId = localStorage.getItem('deviceId');
+      if (!deviceId) {
+        deviceId = 'device_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('deviceId', deviceId);
+      }
+      return deviceId;
+    }
+
     // Dark Mode Toggle
     const darkModeToggle = document.getElementById('darkModeToggle');
     const html = document.documentElement;
@@ -262,17 +272,31 @@
         location: document.getElementById('location').value,
         howItWorks: document.getElementById('how-it-works').value,
         whyCreate: document.getElementById('why-create').value,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        deviceId: generateDeviceId()
       };
       
       // Save individual submission
       localStorage.setItem('clubSuggestionsSubmitted', 'true');
       localStorage.setItem('clubSuggestionsData', JSON.stringify(formData));
       
-      // Add to central submissions list
-      let allSubmissions = JSON.parse(localStorage.getItem('allClubSubmissions') || '[]');
+      // Add to central submissions list (school-wide collection)
+      let allSubmissions = JSON.parse(localStorage.getItem('schoolClubSubmissions') || '[]');
+      
+      // Check if this device already submitted
+      const deviceId = formData.deviceId;
+      const existingSubmission = allSubmissions.find(sub => sub.deviceId === deviceId);
+      
+      if (existingSubmission) {
+        alert('You have already submitted a form from this device. Only one submission per device is allowed.');
+        return;
+      }
+      
       allSubmissions.push(formData);
-      localStorage.setItem('allClubSubmissions', JSON.stringify(allSubmissions));
+      localStorage.setItem('schoolClubSubmissions', JSON.stringify(allSubmissions));
+      
+      // Also save to backup
+      localStorage.setItem('backupClubSubmissions', JSON.stringify(allSubmissions));
       
       // Log to console
       console.log('Form submitted:', formData);
