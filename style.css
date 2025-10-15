@@ -2246,6 +2246,10 @@ html[data-theme="dark"] .club-hero-img {
   .manarat-voice-img {
     max-width: 100%;
   }
+  
+  .club-hero-img {
+    max-width: 250px;
+  }
 }
 
 /* COMPREHENSIVE MOBILE RESPONSIVE DESIGN */
@@ -2466,6 +2470,10 @@ html[data-theme="dark"] .club-hero-img {
   .hero-text p {
     font-size: 0.95rem;
   }
+  
+  .club-hero-img {
+    max-width: 200px;
+  }
 }
 
 /* Extra small devices */
@@ -2579,6 +2587,10 @@ html[data-theme="dark"] .club-hero-img {
   
   .member-grade {
     font-size: 0.9rem;
+  }
+  
+  .club-hero-img {
+    max-width: 150px;
   }
 }
 
