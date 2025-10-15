@@ -337,8 +337,8 @@ html[data-theme="dark"] #loading-screen {
 }
 
 .loader-img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   animation: pulse 2s ease-in-out infinite;
@@ -2174,9 +2174,7 @@ html[data-theme="dark"] .member-grade {
 }
 
 /* Leadership Member Special Styling - Now applied to all team members */
-.leadership-member {
-  /* Styling is now on .team-member for all cards */
-}
+/* .leadership-member styling is now on .team-member for all cards */
 
 /* Hero Content Container with Image */
 .hero-content-container {
@@ -2213,8 +2211,28 @@ html[data-theme="dark"] .member-grade {
   box-shadow: 0 16px 50px rgba(30, 64, 175, 0.4);
 }
 
+.club-hero-img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.club-hero-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 16px 50px rgba(30, 64, 175, 0.4);
+}
+
 /* Dark mode styling */
 html[data-theme="dark"] .manarat-voice-img {
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+html[data-theme="dark"] .club-hero-img {
   border: 3px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
 }
