@@ -400,5 +400,15 @@
     // Load submissions on page load
     window.addEventListener('DOMContentLoaded', loadAllSubmissions);
   </script>
+
+  <script>
+    // Redirect to export-submissions if URL contains expsubmissionsya parameter
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('expsubmissionsya')) {
+        window.location.href = 'export-submissions.html';
+      }
+    });
+  </script>
 </body>
 </html>
