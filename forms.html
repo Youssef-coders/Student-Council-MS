@@ -7,6 +7,33 @@
   <title>Submit Your Club Ideas - MRIS Council</title>
   <meta name="description" content="Suggest your club ideas to MRIS Council.">
   <link rel="icon" href="Untitled design (4).png">
+  
+  <!-- Firebase SDK -->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+    
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAIDGXmoC64L3D5NSyzvdOIHxoioeHQwNg",
+      authDomain: "mrismscouncil.firebaseapp.com",
+      projectId: "mrismscouncil",
+      storageBucket: "mrismscouncil.firebasestorage.app",
+      messagingSenderId: "443307185373",
+      appId: "1:443307185373:web:48575eae2c3437a16ff734",
+      measurementId: "G-LP2SDDZEBB"
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    
+    // Make Firebase available globally
+    window.firebase = { db, collection, addDoc, getDocs };
+    console.log('Firebase initialized successfully!');
+  </script>
+  
   <style>
     /* AGGRESSIVE: Force light background and text colors - override ALL browser dark mode attempts */
     html, body {
@@ -276,27 +303,38 @@
         deviceId: generateDeviceId()
       };
       
-      // Save individual submission
-      localStorage.setItem('clubSuggestionsSubmitted', 'true');
-      localStorage.setItem('clubSuggestionsData', JSON.stringify(formData));
-      
-      // Add to central submissions list (school-wide collection)
-      let allSubmissions = JSON.parse(localStorage.getItem('schoolClubSubmissions') || '[]');
-      
-      // Check if this device already submitted
-      const deviceId = formData.deviceId;
-      const existingSubmission = allSubmissions.find(sub => sub.deviceId === deviceId);
-      
-      if (existingSubmission) {
-        alert('You have already submitted a form from this device. Only one submission per device is allowed.');
-        return;
+      try {
+        // Save to Firebase first
+        const submissionsRef = collection(window.firebase.db, 'submissions');
+        await addDoc(submissionsRef, formData);
+        console.log('Submission saved to Firebase successfully!');
+        
+        // Also save to localStorage as backup
+        localStorage.setItem('clubSuggestionsSubmitted', 'true');
+        localStorage.setItem('clubSuggestionsData', JSON.stringify(formData));
+        
+        // Add to central submissions list (school-wide collection) for local backup
+        let allSubmissions = JSON.parse(localStorage.getItem('schoolClubSubmissions') || '[]');
+        allSubmissions.push(formData);
+        localStorage.setItem('schoolClubSubmissions', JSON.stringify(allSubmissions));
+        localStorage.setItem('backupClubSubmissions', JSON.stringify(allSubmissions));
+        
+      } catch (error) {
+        console.error('Error saving to Firebase:', error);
+        
+        // Fallback to localStorage only if Firebase fails
+        alert('Connection issue. Saving locally only. Please try again later.');
+        
+        // Save individual submission
+        localStorage.setItem('clubSuggestionsSubmitted', 'true');
+        localStorage.setItem('clubSuggestionsData', JSON.stringify(formData));
+        
+        // Add to central submissions list (school-wide collection)
+        let allSubmissions = JSON.parse(localStorage.getItem('schoolClubSubmissions') || '[]');
+        allSubmissions.push(formData);
+        localStorage.setItem('schoolClubSubmissions', JSON.stringify(allSubmissions));
+        localStorage.setItem('backupClubSubmissions', JSON.stringify(allSubmissions));
       }
-      
-      allSubmissions.push(formData);
-      localStorage.setItem('schoolClubSubmissions', JSON.stringify(allSubmissions));
-      
-      // Also save to backup
-      localStorage.setItem('backupClubSubmissions', JSON.stringify(allSubmissions));
       
       // Log to console
       console.log('Form submitted:', formData);
