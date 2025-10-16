@@ -100,10 +100,16 @@
   <script>
     // Load and display submissions
     function loadSubmissions() {
+      // Debug: Check all localStorage keys
+      console.log('All localStorage keys:', Object.keys(localStorage));
+      
       // Try to load from centralized storage first, then fallback to old storage
       let allSubmissions = JSON.parse(localStorage.getItem('schoolClubSubmissions') || '[]');
+      console.log('schoolClubSubmissions:', allSubmissions);
+      
       if (allSubmissions.length === 0) {
         allSubmissions = JSON.parse(localStorage.getItem('allClubSubmissions') || '[]');
+        console.log('allClubSubmissions:', allSubmissions);
       }
       
       // Update count
@@ -114,7 +120,17 @@
       container.innerHTML = '';
       
       if (allSubmissions.length === 0) {
-        container.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 2rem;">No submissions yet.</p>';
+        container.innerHTML = `
+          <div style="text-align: center; padding: 2rem; color: var(--text-muted);">
+            <p>No submissions yet.</p>
+            <p style="font-size: 0.9rem; margin-top: 1rem;">
+              Submit ideas at: <a href="forms.html" style="color: var(--primary-color);">forms.html</a>
+            </p>
+            <button onclick="createTestSubmission()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: var(--primary-color); color: white; border: none; border-radius: 6px; cursor: pointer;">
+              Create Test Submission
+            </button>
+          </div>
+        `;
         return;
       }
       
@@ -206,6 +222,30 @@
       }
     });
     
+    // Create test submission for debugging
+    function createTestSubmission() {
+      const testSubmission = {
+        name: "Test User",
+        class: "9AM1",
+        suggestion1: "Chess Club - Strategic thinking and friendly competition",
+        suggestion2: "Debate Club - Improve public speaking and critical thinking",
+        suggestion3: "Programming Club - Learn coding and technology skills",
+        location: "Library",
+        howItWorks: "Weekly meetings with activities and competitions",
+        whyCreate: "To provide students with engaging extracurricular activities",
+        timestamp: Date.now(),
+        deviceId: "test-device-123"
+      };
+      
+      let allSubmissions = JSON.parse(localStorage.getItem('schoolClubSubmissions') || '[]');
+      allSubmissions.push(testSubmission);
+      localStorage.setItem('schoolClubSubmissions', JSON.stringify(allSubmissions));
+      localStorage.setItem('backupClubSubmissions', JSON.stringify(allSubmissions));
+      
+      alert('Test submission created!');
+      loadSubmissions();
+    }
+
     // Load submissions on page load
     window.addEventListener('DOMContentLoaded', loadSubmissions);
   </script>
