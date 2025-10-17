@@ -31,6 +31,9 @@
     
     // Make Firebase available globally
     window.firebase = { db, collection, addDoc, getDocs };
+    window.firebaseCollection = collection;
+    window.firebaseAddDoc = addDoc;
+    window.firebaseGetDocs = getDocs;
     console.log('Firebase initialized successfully!');
   </script>
   
@@ -304,9 +307,20 @@
       };
       
       try {
+        // Wait for Firebase to be ready
+        let attempts = 0;
+        while (!window.firebase && attempts < 50) {
+          await new Promise(resolve => setTimeout(resolve, 100));
+          attempts++;
+        }
+        
+        if (!window.firebase) {
+          throw new Error('Firebase not loaded');
+        }
+        
         // Save to Firebase first
-        const submissionsRef = collection(window.firebase.db, 'submissions');
-        await addDoc(submissionsRef, formData);
+        const submissionsRef = window.firebaseCollection(window.firebase.db, 'submissions');
+        await window.firebaseAddDoc(submissionsRef, formData);
         console.log('Submission saved to Firebase successfully!');
         
         // Also save to localStorage as backup
