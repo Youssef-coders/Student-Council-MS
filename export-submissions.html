@@ -98,6 +98,9 @@
           <button id="migrate-local" class="btn btn-dark" style="background: #059669;">
             🔄 Migrate Local Submissions to Firebase
           </button>
+          <button id="cleanup-duplicates" class="btn btn-dark" style="background: #f59e0b;">
+            🧹 Clean Duplicates (Same Name)
+          </button>
           <button id="clear-all" class="btn btn-dark" style="background: #dc2626;">
             🗑️ Clear All Data
           </button>
@@ -251,21 +254,27 @@
         
         console.log(`📊 Found ${submissions.length} total submissions`);
         
-        // Find duplicates
-        const seen = new Set();
-        const duplicates = [];
-        const uniqueSubmissions = [];
-        
+        // Group submissions by name to find name-based duplicates
+        const nameGroups = {};
         submissions.forEach(submission => {
-          // Create a unique key for comparison
-          const key = `${submission.name}|${submission.class}|${submission.suggestion1}|${submission.suggestion2}|${submission.suggestion3}|${submission.timestamp}`;
-          
-          if (seen.has(key)) {
-            duplicates.push(submission);
-            console.log(`🔄 Found duplicate: ${submission.name} (ID: ${submission.id})`);
-          } else {
-            seen.add(key);
-            uniqueSubmissions.push(submission);
+          if (!nameGroups[submission.name]) {
+            nameGroups[submission.name] = [];
+          }
+          nameGroups[submission.name].push(submission);
+        });
+        
+        // Find duplicates by name (keep the first one, remove the rest)
+        const duplicates = [];
+        Object.keys(nameGroups).forEach(name => {
+          const group = nameGroups[name];
+          if (group.length > 1) {
+            console.log(`🔄 Found ${group.length} submissions from ${name}, keeping the first one`);
+            // Sort by timestamp to keep the earliest submission
+            group.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+            // Remove all except the first one
+            for (let i = 1; i < group.length; i++) {
+              duplicates.push(group[i]);
+            }
           }
         });
         
@@ -323,6 +332,26 @@
     
     // Also run once on page load (after a delay to ensure Firebase is ready)
     setTimeout(removeDuplicates, 5000);
+    
+    // Manual cleanup button
+    document.getElementById('cleanup-duplicates').addEventListener('click', async () => {
+      const button = document.getElementById('cleanup-duplicates');
+      const originalText = button.textContent;
+      
+      button.disabled = true;
+      button.textContent = '🧹 Cleaning...';
+      
+      try {
+        await removeDuplicates();
+        alert('✅ Cleanup complete! Duplicates have been removed.');
+      } catch (error) {
+        console.error('Cleanup error:', error);
+        alert('❌ Cleanup failed. Please try again.');
+      } finally {
+        button.disabled = false;
+        button.textContent = originalText;
+      }
+    });
     
     // Export to CSV
     document.getElementById('export-csv').addEventListener('click', async () => {
