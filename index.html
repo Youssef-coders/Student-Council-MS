@@ -606,12 +606,36 @@
               throw new Error('Firebase not loaded. Please refresh the page and try again.');
             }
             
-            // Migrate submissions to Firebase
+            // First, get existing Firebase submissions to check for duplicates
             const submissionsRef = window.firebaseCollection(window.firebase.db, 'submissions');
+            const existingSubmissions = await window.firebaseGetDocs(submissionsRef);
+            const existingData = [];
+            existingSubmissions.forEach(doc => {
+              existingData.push(doc.data());
+            });
+            
+            // Migrate submissions to Firebase (with duplicate detection)
             let migratedCount = 0;
+            let duplicateCount = 0;
             
             for (const submission of localSubmissions) {
               try {
+                // Check if this submission already exists in Firebase
+                const isDuplicate = existingData.some(existing => 
+                  existing.name === submission.name &&
+                  existing.class === submission.class &&
+                  existing.suggestion1 === submission.suggestion1 &&
+                  existing.suggestion2 === submission.suggestion2 &&
+                  existing.suggestion3 === submission.suggestion3 &&
+                  existing.timestamp === submission.timestamp
+                );
+                
+                if (isDuplicate) {
+                  console.log('Skipping duplicate submission:', submission.name);
+                  duplicateCount++;
+                  continue;
+                }
+                
                 // Ensure submission has required fields
                 const cleanSubmission = {
                   name: submission.name || 'Unknown',
@@ -634,7 +658,11 @@
             }
             
             // Show success message
-            alert(`Successfully migrated ${migratedCount} out of ${localSubmissions.length} submissions! Your ideas are now visible to everyone.`);
+            if (duplicateCount > 0) {
+              alert(`Migration complete!\n\n✅ Migrated: ${migratedCount} new submissions\n⚠️ Skipped: ${duplicateCount} duplicates (already exist)\n📊 Total processed: ${localSubmissions.length}\n\nYour new ideas are now visible to everyone!`);
+            } else {
+              alert(`Successfully migrated ${migratedCount} out of ${localSubmissions.length} submissions! Your ideas are now visible to everyone.`);
+            }
             
             // Refresh the page
             window.location.reload();
