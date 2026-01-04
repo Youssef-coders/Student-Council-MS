@@ -766,7 +766,8 @@ section p {
   animation: fadeIn 1.5s ease-out;
 }
 
-.cards { display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); }
+.cards { display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); max-width: 1400px; margin: 0 auto; }
+.cards:has(.club-card:only-child) { grid-template-columns: 1fr; max-width: 450px; justify-items: center; }
 .card { 
   background: rgba(255, 255, 255, 0.4);
   border-radius:24px; 
@@ -977,6 +978,12 @@ html[data-theme="dark"] .club-card.upcoming h3 {
   border: 1px solid rgba(100, 116, 139, 0.3);
 }
 
+.club-status:not(.active):not(.upcoming) {
+  background: rgba(239, 68, 68, 0.15);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
 /* Light mode - make upcoming badge dark blue */
 html[data-theme="light"] .club-status.upcoming {
   background: rgba(30, 64, 175, 0.15);
@@ -989,6 +996,12 @@ html[data-theme="dark"] .club-status.upcoming {
   background: rgba(71, 85, 105, 0.6);
   color: #94a3b8;
   border: 1px solid rgba(100, 116, 139, 0.3);
+}
+
+html[data-theme="dark"] .club-status:not(.active):not(.upcoming) {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.4);
 }
 .member-count { 
   font-size:0.95rem; 
@@ -1980,36 +1993,8 @@ html[data-theme="dark"] .team-section h2 {
   max-width: 450px;
 }
 
-/* Leadership section - Perfect 2x2 layout */
-.team-section:nth-of-type(1) .team-category-container {
-  grid-template-columns: repeat(2, minmax(360px, 1fr));
-  max-width: 1100px;
-  gap: 6rem 5rem;
-}
-
-/* News Team - 2x2 layout, centers last item (2-2-2-1) */
-.team-section:nth-of-type(2) .team-category-container {
-  grid-template-columns: repeat(2, minmax(360px, 1fr));
-  max-width: 1100px;
-  gap: 6rem 5rem;
-}
-
-/* Center the 7th member (last item on 4th row) */
-.team-section:nth-of-type(2) .team-member:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-  justify-self: center;
-  max-width: 450px;
-}
-
-/* Club Leaders - Centered pair */
-.team-section:nth-of-type(3) .team-category-container {
-  grid-template-columns: repeat(2, minmax(360px, 1fr));
-  max-width: 1100px;
-  gap: 6rem 5rem;
-}
-
-/* Website Designers - Centered pair */
-.team-section:nth-of-type(4) .team-category-container {
+/* Department sections - Default 2-column layout for pairs */
+.team-section:not(:first-of-type) .team-category-container {
   grid-template-columns: repeat(2, minmax(360px, 1fr));
   max-width: 1100px;
   gap: 6rem 5rem;
@@ -2175,6 +2160,245 @@ html[data-theme="dark"] .member-grade {
 
 /* Leadership Member Special Styling - Now applied to all team members */
 /* .leadership-member styling is now on .team-member for all cards */
+
+/* Leadership Container - Centered pair */
+.leadership-container {
+  grid-template-columns: repeat(2, minmax(400px, 1fr));
+  max-width: 1200px;
+  gap: 8rem;
+  justify-items: center;
+}
+
+/* President - Best Design (Subtle Premium) */
+.president-member {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(245, 158, 11, 0.08));
+  border: 3px solid #fbbf24;
+  box-shadow: 0 8px 32px rgba(251, 191, 36, 0.4),
+              0 0 40px rgba(251, 191, 36, 0.3),
+              inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  padding: 3.5rem 3rem;
+}
+
+.president-member .member-name {
+  background: linear-gradient(135deg, #92400e 0%, #b45309 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.7rem;
+}
+
+.president-member .member-role {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #78350f;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.65rem 1.3rem;
+  box-shadow: 0 3px 10px rgba(251, 191, 36, 0.35);
+}
+
+.president-member:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 20px 60px rgba(251, 191, 36, 0.55),
+              0 0 60px rgba(251, 191, 36, 0.45);
+  border-color: #f59e0b;
+}
+
+html[data-theme="dark"] .president-member {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.12));
+  border: 3px solid #fbbf24;
+  box-shadow: 0 8px 32px rgba(251, 191, 36, 0.5),
+              0 0 40px rgba(251, 191, 36, 0.4);
+}
+
+html[data-theme="dark"] .president-member .member-name {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fbbf24 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+html[data-theme="dark"] .president-member:hover {
+  box-shadow: 0 20px 60px rgba(251, 191, 36, 0.6),
+              0 0 70px rgba(251, 191, 36, 0.5);
+}
+
+/* Vice President - Second Best Design (Enhanced Premium) */
+.vice-president-member {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(37, 99, 235, 0.1), rgba(96, 165, 250, 0.08));
+  border: 3px solid #3b82f6;
+  box-shadow: 0 10px 40px rgba(59, 130, 246, 0.45),
+              0 0 50px rgba(59, 130, 246, 0.35),
+              0 4px 20px rgba(37, 99, 235, 0.25),
+              inset 0 1px 3px rgba(255, 255, 255, 0.7);
+  padding: 3.75rem 3.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.vice-president-member::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+.vice-president-member .member-name {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 30%, #2563eb 60%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.7rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.3px;
+}
+
+.vice-president-member .member-role {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.7rem 1.5rem;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4),
+              inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.vice-president-member .member-role:hover {
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5),
+              inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.vice-president-member:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 25px 70px rgba(59, 130, 246, 0.6),
+              0 0 70px rgba(59, 130, 246, 0.5),
+              0 8px 30px rgba(37, 99, 235, 0.4);
+  border-color: #2563eb;
+  border-width: 3px;
+}
+
+.vice-president-member:hover::before {
+  animation-duration: 2s;
+}
+
+html[data-theme="dark"] .vice-president-member {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.18), rgba(37, 99, 235, 0.15), rgba(96, 165, 250, 0.12));
+  border: 3px solid #60a5fa;
+  box-shadow: 0 10px 40px rgba(96, 165, 250, 0.55),
+              0 0 50px rgba(96, 165, 250, 0.45),
+              0 4px 20px rgba(59, 130, 246, 0.3);
+}
+
+html[data-theme="dark"] .vice-president-member::before {
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.15) 0%, transparent 70%);
+}
+
+html[data-theme="dark"] .vice-president-member .member-name {
+  background: linear-gradient(135deg, #ffffff 0%, #dbeafe 30%, #bfdbfe 60%, #93c5fd 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+html[data-theme="dark"] .vice-president-member .member-role {
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
+  box-shadow: 0 4px 15px rgba(96, 165, 250, 0.5),
+              inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme="dark"] .vice-president-member:hover {
+  box-shadow: 0 25px 70px rgba(96, 165, 250, 0.7),
+              0 0 80px rgba(96, 165, 250, 0.6),
+              0 8px 30px rgba(59, 130, 246, 0.5);
+  border-color: #93c5fd;
+}
+
+/* Head - Third Best Design (Enhanced) */
+.head-member {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(124, 58, 237, 0.08));
+  border: 3px solid #8b5cf6;
+  box-shadow: 0 8px 36px rgba(139, 92, 246, 0.45),
+              0 0 45px rgba(139, 92, 246, 0.35),
+              inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  padding: 3.5rem 3rem;
+}
+
+.head-member .member-name {
+  background: linear-gradient(135deg, #5b21b6 0%, #6d28d9 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.65rem;
+}
+
+.head-member .member-role {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0.65rem 1.3rem;
+  box-shadow: 0 3px 10px rgba(139, 92, 246, 0.35);
+}
+
+.head-member:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 20px 60px rgba(139, 92, 246, 0.55),
+              0 0 60px rgba(139, 92, 246, 0.45);
+  border-color: #7c3aed;
+}
+
+html[data-theme="dark"] .head-member {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.18), rgba(124, 58, 237, 0.12));
+  border: 3px solid #a78bfa;
+  box-shadow: 0 8px 36px rgba(167, 139, 250, 0.5),
+              0 0 45px rgba(167, 139, 250, 0.4);
+}
+
+html[data-theme="dark"] .head-member .member-name {
+  background: linear-gradient(135deg, #e9d5ff 0%, #ddd6fe 50%, #c4b5fd 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+html[data-theme="dark"] .head-member:hover {
+  box-shadow: 0 20px 60px rgba(167, 139, 250, 0.6),
+              0 0 70px rgba(167, 139, 250, 0.5);
+}
+
+/* Co-Head - Regular Design (Standard) */
+.co-head-member {
+  /* Uses default .team-member styling */
+}
+
+/* Single-member departments - Center the member */
+.team-section:has(.team-member:only-child) .team-category-container {
+  grid-template-columns: 1fr !important;
+  max-width: 450px !important;
+  margin: 0 auto;
+  justify-items: center;
+}
 
 /* Hero Content Container with Image */
 .hero-content-container {
@@ -2574,6 +2798,58 @@ html[data-theme="dark"] .club-hero-img {
   
   .team-member {
     padding: 1.5rem;
+  }
+  
+  /* Leadership container responsive */
+  .leadership-container {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    gap: 3rem;
+  }
+  
+  /* President responsive */
+  .president-member {
+    padding: 2.5rem 2rem;
+  }
+  
+  .president-member .member-name {
+    font-size: 1.5rem;
+  }
+  
+  .president-member:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+  
+  /* Vice President responsive */
+  .vice-president-member {
+    padding: 2.5rem 2rem;
+  }
+  
+  .vice-president-member .member-name {
+    font-size: 1.45rem;
+    letter-spacing: 0.2px;
+  }
+  
+  .vice-president-member .member-role {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+  
+  .vice-president-member:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+  
+  /* Head responsive */
+  .head-member {
+    padding: 2rem 1.75rem;
+  }
+  
+  .head-member .member-name {
+    font-size: 1.35rem;
+  }
+  
+  .head-member:hover {
+    transform: translateY(-6px) scale(1.02);
   }
   
   .member-name {

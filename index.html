@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="light">
   <title>MRIS Council - Powered by Students</title>
   <meta name="description" content="MRIS Council: student-led, student-powered. Explore our projects, activities, and community shaping the future of our school.">
-  <link rel="icon" href="Untitled design (4).png">
+  <link rel="icon" href="Untitled design (11).png">
   
   <!-- Firebase SDK -->
   <script type="module">
@@ -36,46 +36,6 @@
     console.log('Firebase initialized successfully!');
   </script>
   
-  <style>
-    /* Migration announcement styling */
-    .announcement-migration {
-      background: linear-gradient(135deg, #059669, #10b981) !important;
-      border: 2px solid #047857 !important;
-      box-shadow: 0 8px 32px rgba(5, 150, 105, 0.3) !important;
-    }
-    
-    .announcement-migration .announcement-badge {
-      background: rgba(255, 255, 255, 0.2) !important;
-      color: white !important;
-      border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    }
-    
-    .announcement-migration .announcement-title {
-      color: white !important;
-    }
-    
-    .announcement-migration .announcement-subtitle {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-    
-    .announcement-migration .btn {
-      background: rgba(255, 255, 255, 0.2) !important;
-      color: white !important;
-      border: 2px solid rgba(255, 255, 255, 0.3) !important;
-      backdrop-filter: blur(10px) !important;
-    }
-    
-    .announcement-migration .btn:hover {
-      background: rgba(255, 255, 255, 0.3) !important;
-      transform: translateY(-2px) !important;
-    }
-    
-    .announcement-migration .btn:disabled {
-      opacity: 0.7 !important;
-      cursor: not-allowed !important;
-      transform: none !important;
-    }
-  </style>
   
   <style>
     /* AGGRESSIVE: Force light background and text colors - override ALL browser dark mode attempts */
@@ -130,7 +90,7 @@
   <div id="loading-screen">
     <div class="loader-container">
       <div class="loader-logo">
-        <img src="Untitled design (4).png" alt="Loading" class="loader-img">
+        <img src="Untitled design (11).png" alt="Loading" class="loader-img">
       </div>
       <div class="loader-spinner"></div>
       <div class="loader-text">MRIS Council</div>
@@ -142,7 +102,7 @@
   <nav>
     <div class="container">
       <a href="index.html" class="nav-logo">
-        <img src="Untitled design (4).png" alt="MRIS Logo">
+        <img src="Untitled design (11).png" alt="MRIS Logo">
         MRIS Council
         <div class="countdown-pill" id="header-countdown" style="display: none;">
           <span class="pill-icon">⏰</span>
@@ -194,97 +154,11 @@
     <a href="clubs.html" class="btn btn-dark ml-1">View Clubs</a>
   </header>
 
-  <!-- Announcement Section -->
-  <section class="announcement-section">
-    <div class="announcement-container announcement-flashy">
-      <div class="announcement-badge">📢 ANNOUNCEMENT 📢</div>
-      <div class="announcement-text">
-        <h2 class="announcement-title">Got a good club idea? Suggest it to us!</h2>
-        <p class="announcement-subtitle">We're always looking for new and exciting club ideas! Share your suggestions using the form.</p>
-      </div>
-      <div class="announcement-qr">
-        <a href="forms.html" class="btn btn-primary btn-announcement">
-          📝 Submit Your Idea
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Migration Announcement -->
-  <section class="announcement-section">
-    <div class="announcement-container announcement-migration">
-      <div class="announcement-badge">🔄 MIGRATION NEEDED 🔄</div>
-      <div class="announcement-text">
-        <h2 class="announcement-title">Submitted before Oct 17? Migrate your data!</h2>
-        <p class="announcement-subtitle">If you submitted club ideas before October 17th, please migrate your submissions to our new system.</p>
-      </div>
-      <div class="announcement-qr">
-        <button id="migrate-submissions-btn" class="btn btn-primary btn-announcement">
-          🔄 Migrate My Submissions
-        </button>
-      </div>
-    </div>
-  </section>
-
   <!-- Latest News Carousel -->
   <section class="news-carousel-section">
     <h2>Latest News</h2>
-    <div class="news-carousel">
-      <div class="carousel-container">
-        <div class="carousel-track">
-          <!-- News Slide 1 - NEW -->
-          <div class="carousel-slide active">
-            <img src="mrismscouncil.com (2).png" alt="MRIS Council Website" class="carousel-image">
-            <div class="carousel-content">
-              <div class="carousel-date">October 14, 2025</div>
-              <h3>mrismscouncil.com is live!!</h3>
-              <p>mrismscouncil.com becomes the council's official site</p>
-              <a href="news.html" class="btn btn-primary mt-1">Read More</a>
-            </div>
-          </div>
-          
-          <!-- News Slide 2 - NEW -->
-          <div class="carousel-slide">
-            <img src="istockphoto-876560704-612x612.jpg" alt="Japan Trip" class="carousel-image">
-            <div class="carousel-content">
-              <div class="carousel-date">October 14, 2025</div>
-              <h3>A Trip to Japan</h3>
-              <p>A 10 day trip to Japan was just announced</p>
-              <a href="news.html" class="btn btn-primary mt-1">Read More</a>
-            </div>
-          </div>
-          
-          <!-- News Slide 3 - NEW -->
-          <div class="carousel-slide">
-            <img src="download.jpeg" alt="Riyadh Season" class="carousel-image">
-            <div class="carousel-content">
-              <div class="carousel-date">October 14, 2025</div>
-              <h3>Riyadh Season Balloon Parade</h3>
-              <p>Riyadh Season kicks off with many activities and a balloon parade</p>
-              <a href="news.html" class="btn btn-primary mt-1">Read More</a>
-            </div>
-          </div>
-          
-          <!-- News Slide 4 - NEW -->
-          <div class="carousel-slide">
-            <img src="tips-tricks-professional-blue-symbol-concept-image-text-related-95669424.webp" alt="Exam Tips" class="carousel-image">
-            <div class="carousel-content">
-              <div class="carousel-date">October 14, 2025</div>
-              <h3>Tips and Tricks for Exams</h3>
-              <p>1. Prepare Early - 2. Stay Focused - 3. Learn from Mistakes</p>
-              <a href="news.html" class="btn btn-primary mt-1">Read More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Navigation Dots -->
-      <div class="carousel-dots">
-        <span class="dot active" onclick="goToSlide(0)"></span>
-        <span class="dot" onclick="goToSlide(1)"></span>
-        <span class="dot" onclick="goToSlide(2)"></span>
-        <span class="dot" onclick="goToSlide(3)"></span>
-      </div>
+    <div class="no-news-message">
+      <p>No news yet. Check back later for updates!</p>
     </div>
   </section>
 
@@ -489,51 +363,6 @@
     });
   </script>
 
-  <script>
-    // News Carousel
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.dot');
-    let autoSlideInterval;
-
-    function showSlide(n) {
-      // Remove active class from all slides and dots
-      slides.forEach(slide => slide.classList.remove('active'));
-      dots.forEach(dot => dot.classList.remove('active'));
-      
-      // Wrap around if necessary
-      if (n >= slides.length) {
-        currentSlide = 0;
-      } else if (n < 0) {
-        currentSlide = slides.length - 1;
-      } else {
-        currentSlide = n;
-      }
-      
-      // Add active class to current slide and dot
-      slides[currentSlide].classList.add('active');
-      dots[currentSlide].classList.add('active');
-    }
-
-    function goToSlide(n) {
-      showSlide(n);
-      resetAutoSlide();
-    }
-
-    function autoSlide() {
-      showSlide(currentSlide + 1);
-    }
-
-    function resetAutoSlide() {
-      clearInterval(autoSlideInterval);
-      autoSlideInterval = setInterval(autoSlide, 5000); // Change slide every 5 seconds
-    }
-
-    // Start auto-sliding when page loads
-    document.addEventListener('DOMContentLoaded', () => {
-      autoSlideInterval = setInterval(autoSlide, 5000);
-    });
-  </script>
 
   <script>
     // Redirect to export-submissions if URL contains expsubmissionsya parameter
@@ -545,140 +374,6 @@
     });
   </script>
 
-  <script>
-    // Migration functionality
-    document.addEventListener('DOMContentLoaded', () => {
-      const migrateBtn = document.getElementById('migrate-submissions-btn');
-      
-      if (migrateBtn) {
-        migrateBtn.addEventListener('click', async () => {
-          try {
-            // Debug: Show all localStorage keys
-            console.log('All localStorage keys:', Object.keys(localStorage));
-            
-            // Check if user has local submissions - try multiple possible keys
-            let localSubmissions = JSON.parse(localStorage.getItem('schoolClubSubmissions') || '[]');
-            console.log('schoolClubSubmissions:', localSubmissions);
-            
-            if (localSubmissions.length === 0) {
-              localSubmissions = JSON.parse(localStorage.getItem('allClubSubmissions') || '[]');
-              console.log('allClubSubmissions:', localSubmissions);
-            }
-            
-            // Try other possible keys
-            if (localSubmissions.length === 0) {
-              localSubmissions = JSON.parse(localStorage.getItem('clubSuggestionsData') || '[]');
-              console.log('clubSuggestionsData:', localSubmissions);
-              // Convert single submission to array if needed
-              if (localSubmissions && !Array.isArray(localSubmissions)) {
-                localSubmissions = [localSubmissions];
-              }
-            }
-            
-            // Try backup key
-            if (localSubmissions.length === 0) {
-              localSubmissions = JSON.parse(localStorage.getItem('backupClubSubmissions') || '[]');
-              console.log('backupClubSubmissions:', localSubmissions);
-            }
-            
-            if (localSubmissions.length === 0) {
-              alert('No local submissions found to migrate!\n\nThis could mean:\n- You haven\'t submitted any forms yet\n- Your submissions were cleared\n- You\'re using a different browser/device\n\nTry submitting a new form first to test the system.');
-              return;
-            }
-            
-            // Confirm migration
-            if (!confirm(`Found ${localSubmissions.length} local submission(s). Migrate them to the new system?`)) {
-              return;
-            }
-            
-            // Disable button and show loading
-            migrateBtn.disabled = true;
-            migrateBtn.textContent = '🔄 Migrating...';
-            
-            // Wait for Firebase to be ready
-            let attempts = 0;
-            while (!window.firebase && attempts < 50) {
-              await new Promise(resolve => setTimeout(resolve, 100));
-              attempts++;
-            }
-            
-            if (!window.firebase) {
-              throw new Error('Firebase not loaded. Please refresh the page and try again.');
-            }
-            
-            // First, get existing Firebase submissions to check for duplicates
-            const submissionsRef = window.firebaseCollection(window.firebase.db, 'submissions');
-            const existingSubmissions = await window.firebaseGetDocs(submissionsRef);
-            const existingData = [];
-            existingSubmissions.forEach(doc => {
-              existingData.push(doc.data());
-            });
-            
-            // Migrate submissions to Firebase (with duplicate detection)
-            let migratedCount = 0;
-            let duplicateCount = 0;
-            
-            for (const submission of localSubmissions) {
-              try {
-                // Check if this submission already exists in Firebase
-                const isDuplicate = existingData.some(existing => 
-                  existing.name === submission.name &&
-                  existing.class === submission.class &&
-                  existing.suggestion1 === submission.suggestion1 &&
-                  existing.suggestion2 === submission.suggestion2 &&
-                  existing.suggestion3 === submission.suggestion3 &&
-                  existing.timestamp === submission.timestamp
-                );
-                
-                if (isDuplicate) {
-                  console.log('Skipping duplicate submission:', submission.name);
-                  duplicateCount++;
-                  continue;
-                }
-                
-                // Ensure submission has required fields
-                const cleanSubmission = {
-                  name: submission.name || 'Unknown',
-                  class: submission.class || 'Unknown',
-                  suggestion1: submission.suggestion1 || '',
-                  suggestion2: submission.suggestion2 || '',
-                  suggestion3: submission.suggestion3 || '',
-                  location: submission.location || '',
-                  howItWorks: submission.howItWorks || '',
-                  whyCreate: submission.whyCreate || '',
-                  timestamp: submission.timestamp || Date.now(),
-                  deviceId: submission.deviceId || 'unknown'
-                };
-                
-                await window.firebaseAddDoc(submissionsRef, cleanSubmission);
-                migratedCount++;
-              } catch (error) {
-                console.error('Error migrating submission:', error);
-              }
-            }
-            
-            // Show success message
-            if (duplicateCount > 0) {
-              alert(`Migration complete!\n\n✅ Migrated: ${migratedCount} new submissions\n⚠️ Skipped: ${duplicateCount} duplicates (already exist)\n📊 Total processed: ${localSubmissions.length}\n\nYour new ideas are now visible to everyone!`);
-            } else {
-              alert(`Successfully migrated ${migratedCount} out of ${localSubmissions.length} submissions! Your ideas are now visible to everyone.`);
-            }
-            
-            // Refresh the page
-            window.location.reload();
-            
-          } catch (error) {
-            console.error('Migration error:', error);
-            alert(`Migration failed: ${error.message}\n\nPlease try:\n1. Refresh the page\n2. Try again\n3. Check your internet connection\n4. Contact support if the problem persists`);
-            
-            // Re-enable button
-            migrateBtn.disabled = false;
-            migrateBtn.textContent = '🔄 Migrate My Submissions';
-          }
-        });
-      }
-    });
-  </script>
 
 </body>
 </html>

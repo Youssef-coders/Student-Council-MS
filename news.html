@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>News - MRIS Council</title>
   <meta name="description" content="Stay updated with the latest news, announcements, and events from MRIS Council.">
-  <link rel="icon" href="Untitled design (4).png">
+  <link rel="icon" href="Untitled design (11).png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,7 +26,7 @@
   <nav>
     <div class="container">
       <a href="index.html" class="nav-logo">
-        <img src="Untitled design (4).png" alt="MRIS Logo">
+        <img src="Untitled design (11).png" alt="MRIS Logo">
         MRIS Council
         <!-- <div class="countdown-pill" id="header-countdown" style="display: none;">
           <span class="pill-icon">⏰</span>
@@ -60,100 +60,10 @@
   <section>
     <h2>Recent News</h2>
     
-    <div class="cards">
-      <!-- News Preview 1 - MRIS Council Website -->
-      <div class="news-preview" data-article="1">
-        <img src="mrismscouncil.com (2).png" alt="MRIS Council Website" class="news-preview-image">
-        <div class="news-preview-content">
-          <div class="news-date">October 15, 2025</div>
-          <h3>mrismscouncil.com is live!!</h3>
-          <p class="news-preview-excerpt">
-            mrismscouncil.com becomes the council's official site
-          </p>
-          <div class="news-preview-footer">
-            <div class="news-writer">
-              <span class="writer-icon">👤</span>
-              <span class="writer-name">Youssef Ahmed</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- News Preview 2 - Japan Trip -->
-      <div class="news-preview" data-article="2">
-        <img src="istockphoto-876560704-612x612.jpg" alt="Japan Trip" class="news-preview-image">
-        <div class="news-preview-content">
-          <div class="news-date">October 15, 2025</div>
-          <h3>A Trip to Japan</h3>
-          <p class="news-preview-excerpt">
-            A 10 day trip to Japan was just announced
-          </p>
-          <div class="news-preview-footer">
-            <div class="news-writer">
-              <span class="writer-icon">👤</span>
-              <span class="writer-name">Youssef Ahmed</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- News Preview 3 - Riyadh Season Balloon Parade -->
-      <div class="news-preview" data-article="3">
-        <img src="download.jpeg" alt="Riyadh Season" class="news-preview-image">
-        <div class="news-preview-content">
-          <div class="news-date">October 15, 2025</div>
-          <h3>Riyadh Season Balloon Parade</h3>
-          <p class="news-preview-excerpt">
-            Riyadh Season kicks off with many activities and a balloon parade
-          </p>
-          <div class="news-preview-footer">
-            <div class="news-writer">
-              <span class="writer-icon">👤</span>
-              <span class="writer-name">Talal Nahari</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- News Preview 4 - Tips and Tricks -->
-      <div class="news-preview no-popup">
-        <img src="tips-tricks-professional-blue-symbol-concept-image-text-related-95669424.webp" alt="Exam Tips" class="news-preview-image">
-        <div class="news-preview-content">
-          <div class="news-date">October 15, 2025</div>
-          <h3>Tips and Tricks for Exams</h3>
-          <p class="news-preview-excerpt">
-            1. Prepare Early - 2. Stay Focused - 3. Learn from Mistakes
-          </p>
-          <div class="news-preview-footer">
-            <div class="news-writer">
-              <span class="writer-icon">👤</span>
-              <span class="writer-name">Abdullah Saad</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- News Article Popup -->
-    <div id="news-popup" class="news-popup">
-      <div class="news-popup-overlay"></div>
-      <div class="news-popup-content">
-        <button class="news-popup-close">&times;</button>
-        <div class="news-popup-header">
-          <img id="popup-image" src="" alt="" class="news-popup-image">
-        </div>
-        <div class="news-popup-body">
-          <div id="popup-date" class="news-popup-date"></div>
-          <h2 id="popup-title"></h2>
-          <div id="popup-content" class="news-popup-text"></div>
-          <div class="news-popup-footer">
-            <div class="news-writer" id="popup-footer-writer">
-              <span class="writer-icon">👤</span>
-              <span class="writer-name"></span>
-            </div>
-          </div>
-        </div>
+    <div class="no-events-message">
+      <div class="no-events-card">
+        <h3>No news yet</h3>
+        <p>Check back later for updates!</p>
       </div>
     </div>
 
@@ -212,87 +122,6 @@
       }
     });
 
-    // News article data
-    const newsArticles = {
-      1: {
-        title: "mrismscouncil.com is live!!",
-        date: "October 15, 2025",
-        writer: "Youssef Ahmed",
-        image: "mrismscouncil.com (2).png",
-        content: "The Student Council is excited to announce mrismscouncil.com as its official website! Created by Youssef Ahmed and Mahmood Alshaheen, the site lets students stay updated on news, events, and announcements, join clubs, and take part in votes and polls. This week, you can suggest club ideas on the site—the top three will be up for a vote next week, and the winning club will be created."
-      },
-      2: {
-        title: "A Trip to Japan",
-        date: "October 15, 2025",
-        writer: "Youssef Ahmed",
-        image: "istockphoto-876560704-612x612.jpg",
-        content: "A trip to Japan from November 20–30 was announced on October 13! It's a great chance to explore Japanese culture through visits to the Digital Art Museum, Shibuya Crossing, famous temples, and more. Activities include climbing Mount Fuji, playing golf, and riding the Shinkansen. The 18,900 riyal fee covers flights, accommodation, transport, admission tickets, and daily breakfast."
-      },
-      3: {
-        title: "Riyadh Season Balloon Parade",
-        date: "October 15, 2025",
-        writer: "Talal Nahari",
-        image: "download.jpeg",
-        content: "Riyadh Season 2025 kicked off with a spectacular parade between Kingdom Arena and Boulevard World, drawing thousands of spectators. The event featured international and local performances, giant balloons, and fireworks. This marks the start of a season filled with 11 entertainment zones, 15 world championships, and 34 festivals and exhibitions."
-      },
-      4: {
-        title: "Tips and Tricks for Exams",
-        date: "October 15, 2025",
-        writer: "Abdullah Saad",
-        image: "tips-tricks-professional-blue-symbol-concept-image-text-related-95669424.webp",
-        content: "1. Prepare Early - Start studying well in advance, don't wait until the last minute. 2. Stay Focused - Find a quiet study space and eliminate distractions. 3. Learn from Mistakes - Review past exams and understand what went wrong. 4. Take Breaks - Study in intervals with short breaks to maintain concentration. 5. Practice Tests - Take practice exams to familiarize yourself with the format. 6. Get Enough Sleep - A well-rested mind performs better on exams."
-      }
-    };
-
-    // News popup functionality
-    document.addEventListener('DOMContentLoaded', () => {
-      const popup = document.getElementById('news-popup');
-      const closeBtn = document.querySelector('.news-popup-close');
-      const overlay = document.querySelector('.news-popup-overlay');
-      const previews = document.querySelectorAll('.news-preview');
-
-      // Open popup when preview is clicked
-      previews.forEach(preview => {
-        preview.addEventListener('click', () => {
-          // Skip if it has no-popup class
-          if (preview.classList.contains('no-popup')) {
-            return;
-          }
-          
-          const articleId = preview.getAttribute('data-article');
-          const article = newsArticles[articleId];
-          
-          if (article) {
-            // Populate popup content
-            document.getElementById('popup-image').src = article.image;
-            document.getElementById('popup-date').textContent = article.date;
-            document.getElementById('popup-title').textContent = article.title;
-            document.getElementById('popup-content').innerHTML = `<p>${article.content}</p>`;
-            document.querySelector('#popup-footer-writer .writer-name').textContent = article.writer;
-            
-            // Show popup
-            popup.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-          }
-        });
-      });
-
-      // Close popup functions
-      function closePopup() {
-        popup.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-
-      closeBtn.addEventListener('click', closePopup);
-      overlay.addEventListener('click', closePopup);
-
-      // Close with Escape key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && popup.style.display === 'flex') {
-          closePopup();
-        }
-      });
-    });
   </script>
 </body>
 </html>
