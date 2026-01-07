@@ -4,14 +4,14 @@ const events = [
     id: 1,
     title: "🏆 Annual Sports Day",
     description: "Join us for our biggest sports event of the year with competitions, games, and prizes!",
-    date: "2025-10-15T09:00:00",
+    date: "2026-10-15T09:00:00",
     location: "School Grounds"
   },
   {
     id: 2,
     title: "🎨 Art Exhibition",
     description: "Showcase your creative talents in our annual student art exhibition.",
-    date: "2025-10-20T14:00:00",
+    date: "2026-10-20T14:00:00",
     location: "Main Hall"
   }
 ];
